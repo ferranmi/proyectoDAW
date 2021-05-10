@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @include('include.menu')
+</head>
+
+<body class="text-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="cabecera col-lg-12 col-md-12 col-sm-12 col-12">
+                Trail Running World</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class=" row">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+                        @yield('content')
+                    </div>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
+            </div>
+            <div class="row">
+                <div class="azul col-md-6 md-6 col-sm-6 col-6">1
+
+
+                </div>
+                <div class="azul col-md-6 col-sm-6 col-6">2</div>
+            </div>
+
+
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="gris col-lg-3 col-md-3 col-sm-3 col-6 order-lg-4">a</div>
+            <div class="gris col-lg-3 col-md-3 col-sm-3 col-6 order-lg-3">b</div>
+            <div class=" d-lg-none d-md-none d-sm-none d-none"></div>
+            <div class="gris col-lg-3 col-md-3 col-sm-3 col-6 order-lg-2">c</div>
+            <div class="gris col-lg-3 col-md-3 col-sm-3 col-6 order-lg-1">d</div>
+        </div>
+
+        <div class="justify-content-center row">
+            <div class="cabecera footer col-lg-10 col-md-10 col-sm-10 d-lg-block d-md-block d-sm-block d-none ">Footer
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
