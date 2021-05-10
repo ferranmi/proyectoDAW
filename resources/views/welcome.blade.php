@@ -11,47 +11,65 @@
 </head>
 
 <body class="text-center">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="cabecera col-lg-12 col-md-12 col-sm-12 col-12">Trail Running World</div>
-		</div>
-
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class=" row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <nav>
-                                <a href="#">Inicio</a>
-                                <a href="#">Carresssssras</a>
-                                <a href="#">Iniciar Sesion/Registrarse</a>
-                                <a href="#">Preguntame algo</a>
-                                <a href="#">Contacto</a>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <header>
+          <div class="row">
+            <div class="" ></div>
+            <div class="col-4 text-center">
+              <a class="cabecera" href="#">Trail Running World</a>
             </div>
-        </div>
-        <div class="justify-content-center row">
-            <div class="col-lg-10 col-md-10  col-sm-10 col-10">
-                <div class="row">
-                    <div class="azul col-lg-6 col-md-6  col-sm-6 col-6">1</div>
-
-                    <div class="azul col-lg-6 col-md-6 col-sm-6 col-6 ">2</div>
-                </div>
-                <div class="row">
-                    <div class="gris col-lg-3 col-md-3 col-sm-3 col-6 order-lg-4">a</div>
-                    <div class="gris col-lg-3 col-md-3 col-sm-3 col-6 order-lg-3">b</div>
-                    <div class=" d-lg-none d-md-none d-sm-none d-none"></div>
-                    <div class="gris col-lg-3 col-md-3 col-sm-3 col-6 order-lg-2">c</div>
-                    <div class="gris col-lg-3 col-md-3 col-sm-3 col-6 order-lg-1">d</div>
-                </div>
+            <div class="col-4 text-align-right">
+                    <a href="#">Registrar-se</a>
+              <a href="#">Login</a>
             </div>
+          </div>
+        </header>
+
+        <div>
+          <nav class="nav d-flex justify-content-between">
+            <a href="#">Inicio</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Calendario de carreras</a>
+            <a href="#">Inscripciones</a>
+            <a href="#">Cronicas</a>
+            <a href="#">Tienda</a>
+            <a href="#">Contactanos</a>
+          </nav>
         </div>
 
-		<div class="justify-content-center row">
-			<div class="cabecera footer col-lg-12 col-md-12 col-sm-12 d-lg-block d-md-block d-sm-block d-none ">Footer</div>
-		</div>
-	</div>
+
+
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+              <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-primary">World</strong>
+                <h3 class="mb-0">
+                  <a class="text-dark" href="#">Featured post</a>
+                </h3>
+                <div class="mb-1 text-muted">Nov 12</div>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a href="#">Continue reading</a>
+              </div>
+              <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17956fb977a%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17956fb977a%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22131%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+              <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-success">Design</strong>
+                <h3 class="mb-0">
+                  <a class="text-dark" href="#">Post title</a>
+                </h3>
+                <div class="mb-1 text-muted">Nov 11</div>
+                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                <a href="#">Continue reading</a>
+              </div>
+              <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17956fb977d%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17956fb977d%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22131%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 200px; height: 250px;">
+            </div>
+          </div>
+        </div>
+      </div>
+
 </body>
 </html>
