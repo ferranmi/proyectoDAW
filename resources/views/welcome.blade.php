@@ -13,37 +13,29 @@
 <body class="text-center">
     <div class="container">
         <header>
-          <div class="row">
-            <div class="" ></div>
-            <div class="col-4 text-center">
-              <a class="cabecera" href="#">Trail Running World</a>
-            </div>
-            <div class="col-4 text-align-right">
-                    <a href="#">Registrar-se</a>
-              <a href="#">Login</a>
-            </div>
-          </div>
-        </header>
 
+            <div class="row justify-content-between align-items-center">
+
+              <div class="col-lg-12 col-md-12">
+                <a class="cabecera" href="#">Trail Runnning World</a>
+              </div>
+            </div>
+          </header>
         <div>
-          <nav class="nav d-flex justify-content-between">
-            <a href="#">Inicio</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Calendario de carreras</a>
-            <a href="#">Inscripciones</a>
-            <a href="#">Cronicas</a>
-            <a href="#">Tienda</a>
-            <a href="#">Contactanos</a>
+          <nav class="nav  justify-content-between">
+            <a href="#">Inici</a>
+            <a href="#">Inscripcions</a>
+            <a href="#">Croniques</a>
+            <a href="#">Tenda</a>
+            <a href="#">Contacte</a>
+            <a href="#">Autenticarse/Registrarse</a>
           </nav>
         </div>
-
-
-
-        <div class="row mb-2">
+        <div class="row ">
           <div class="col-md-6">
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
               <div class="card-body d-flex flex-column align-items-start">
-                <strong class="d-inline-block mb-2 text-primary">World</strong>
+                <strong> World</strong>
                 <h3 class="mb-0">
                   <a class="text-dark" href="#">Featured post</a>
                 </h3>
@@ -70,6 +62,5 @@
           </div>
         </div>
       </div>
-
 </body>
 </html>
