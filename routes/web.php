@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('menu-nav');
+    return view('products');
 });
 Route::get('/register', function () {
     return view('register');
