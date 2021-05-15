@@ -17,10 +17,16 @@
                 <div class=" row">
                     <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
                     <div class="col-lg-10 col-md-10 col-sm-10 col-10">
-                        @yield('content')
+                        <div>
+                            @include('include.menu-nav')
+                        </div>
+                        <div>
+                            @yield('content')
+                        </div>
                     </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
                 </div>
-                <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
+
             </div>
 
 
