@@ -3,15 +3,52 @@ html {
     padding: 0px;
 }
 
-div {
-    height: 50px;
-    border: 1px solid white;
-    display: flex;
+.div-double {
+    margin-top: 20px;
+}
+
+body {
+    background-color: rgb(241, 241, 241);
+}
+
+p {
+    font-family: 'Metal Mania', cursive;
+}
+
+a {
+    font-family: 'Langar', cursive;
+}
+
+select {
+    color: red;
+}
+
+.div-products-targetas {
+    width: 580px;
+    height: 225px;
+}
+
+.cabecera:hover {
+    color: rgb(255, 0, 0);
+    text-shadow: 3px 3px rgb(8, 8, 8);
 }
 
 .cabecera {
-    background-color: lightgreen;
-    color: red;
+    text-shadow: 3px 3px rgb(8, 8, 8);
+    color: rgb(255, 0, 0);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 50px;
+    font-family: 'Ceviche One', cursive;
+}
+
+.hola {
+    position: absolute;
+    height: 300px;
+    width: 100%;
+}
+
+.menu-nav a {
+    font-family: 'Romanesco', cursive;
+    color: red;
+    font-size: 1.75em;
 }

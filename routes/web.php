@@ -18,7 +18,7 @@ use App\Http\Controllers\contactController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+return view('products');
 });
 /*Route::get('/register', function () {
     return view('register');

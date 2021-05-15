@@ -5,4 +5,9 @@
 <link rel="stylesheet" type="text/css" href="./css/menu.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+    href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Langar&family=Metal+Mania&family=Romanesco&display=swap"
+    rel="stylesheet">
+
 <title>Document</title>
