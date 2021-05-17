@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('content')
+@section('products')
 
     <form class="access" name="access" method="post">
         @csrf
