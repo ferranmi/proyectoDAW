@@ -52,3 +52,12 @@ select {
     color: red;
     font-size: 1.75em;
 }
+
+.footer-ajustes {
+    color: aqua;
+}
+
+.targetas-products {
+    width: 70%;
+    height: 100%;
+}
