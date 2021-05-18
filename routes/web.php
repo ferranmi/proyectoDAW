@@ -19,8 +19,13 @@ use App\Http\Controllers\NoticiasController;
 */
 
 Route::get('/', function () {
-return view('products');
+    return view('products');
 });
+
+Route::get('/noticias', function () {
+    return view('noticias');
+});
+
 /*Route::get('/register', function () {
     return view('register');
 });*/

@@ -1,7 +1,9 @@
 @extends('layouts.base')
-
 @section('products')
 
+<div class="container">
+    <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
+        <div class=" col-lg-4 bg-danger " style="width: 60px; height: 350px;">
     <form class="register" name="register" method="post">
         @csrf
         <h3>Register</h3>
@@ -34,10 +36,16 @@
             <input type="date" id="datanac" name="datanac" required value="{{ old('datanac') }}" />
         </div>
         <input type="submit" value="Register" id="submit" name="submit" />
-        <a href="/login" class="linkform">You have an account already? Log in here</a>
+    <p> <a href="/login" class="linkform">You have an account already? Log in here</a></p>
     </form>
+        </div>
+    </div>
+</div>
+
+
+
     <script>
-        $("#name").blur(function() {
+     /*   $("#name").blur(function() {
             if (this.value !== "") {
                 var correcto = true;
                 var res = this.value.split("");
@@ -68,7 +76,7 @@
                 }
             } else {
                 trataError(this, "can not be null");
-                alert("js");
+                alert("No pot ser null");
             }
         })
 
@@ -128,16 +136,16 @@
                           } else {
                               trataCorrecto(this);
                           }
-                      })*/
+                      })
 
         function trataCorrecto(objeto) {
             objeto.setCustomValidity("");
         }
 
-
         function trataError(objeto, texto) {
             objeto.setCustomValidity(texto);
-        }
+        }*/
 
     </script>
+
 @endsection
