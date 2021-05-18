@@ -9,5 +9,7 @@
 <link
     href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Langar&family=Metal+Mania&family=Romanesco&display=swap"
     rel="stylesheet">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
 
 <title>Document</title>

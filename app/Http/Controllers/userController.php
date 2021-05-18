@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class userController extends Controller
 {
@@ -15,19 +16,23 @@ class userController extends Controller
     }
 
     public function store(Request $request){
-        $client=[
-            "dni"=>$request->input("dni"),
-            "name"=>$request->input("name"),
-            "lastname"=>$request->input("lastname"),
-            "email"=>$request->input("email"),
-            "password"=>$request->input("passwd"),
-            "datanac"=>$request->input("datanac"),
-        ];
-        foreach ($client as $cli){
+        $user= new User();
+
+           $user->dni=$request->dni;
+           $user->name=$request->name;
+           $user->lastname=$request->lastname;
+           $user->email=$request->email;
+           $user->password=$request->passwd;
+           $user->birth_date=$request->datanac;
+           $user->type_user='C';
+        //dd($user);
+        /*foreach ($user as $cli){
             if($cli==''){
-                return back()->withInput($client);
+                return back()->withInput();
             }
-        }
+        }*/
+
+        $user->save();
         //dd($client);
         return redirect('/');
     }

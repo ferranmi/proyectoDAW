@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\contactController;
+use App\Http\Controllers\NoticiasController;
 
 
 
@@ -29,7 +30,9 @@ Route::get('/login', [userController::class, 'login']);
 Route::post('/login', [userController::class, 'access']);
 Route::get('/contact', [contactController::class, 'index']);
 Route::post('/contact', [contactController::class, 'store']);
-
+Route::get('/noticias', [NoticiasController::class, 'index']);
+Route::get('/noticias/{id}', [NoticiasController::class, 'show']);
 Route::get('/contact', function () {
     return view('contacto');
 });
+
