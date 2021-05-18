@@ -40,7 +40,7 @@
     </div>
 
 
-        <div class="col-lg-12 d-flex justify-content-center align-item-start mt-5 mb-5">
+        <div class="col-lg-12 d-flex justify-content-center align-item-center mt-5 mb-5">
             <div class="col-lg-3">
                 <div class="card mb-3 box-shadow targetas-products">
                   <img class="card-img-top"
@@ -54,8 +54,8 @@
                       This content is a little bit longer.</p>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-3 ">
+            </div>
+            <div class="col-lg-3">
                 <div class="card mb-3 box-shadow targetas-products">
                   <img class="card-img-top"
                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
@@ -69,7 +69,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 ">
+            <div class="col-lg-3">
                 <div class="card mb-4 box-shadow targetas-products">
                   <img class="card-img-top"
                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
@@ -83,7 +83,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 ">
+            <div class="col-lg-3">
                 <div class="card mb-4 box-shadow targetas-products">
                   <img class="card-img-top"
                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
