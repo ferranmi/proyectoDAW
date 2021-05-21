@@ -1,4 +1,3 @@
-
 @extends('layouts.base')
 @section('products')
 
@@ -14,22 +13,11 @@
     </div>
 </div>
 
-    @endforeach
-
-
-
+@endforeach
 
 
 <div class="col-lg-12  justify-content-center d-flex ">
     {{$news->links() }}
-</div>
-
-<div class="col-lg-12  justify-content-center d-flex  mt-2 mb-4 ">
-
-    <p> <a  class="btn btn-danger btn-mg" href="/nova_noticia">  Crea una noticia  </a>
-    </p>
-
-
 </div>
 
 @endsection

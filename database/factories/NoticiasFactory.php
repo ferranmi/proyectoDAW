@@ -26,9 +26,9 @@ class NoticiasFactory extends Factory
             'code' => $this->faker->name,
             'title' => $this->faker->sentence(),
             'content' => $this->faker->sentence(),
+            'd_short' => $this->faker->sentence(),
             'commentaries' => $this->faker->paragraph(),
             'image' => $this->faker->image()
         ];
     }
-
 }

@@ -19,6 +19,15 @@ a {
     font-family: 'Langar', cursive;
 }
 
+h3 {
+    font-family: 'Bungee Inline', cursive;
+}
+
+label {
+    font-family: 'Modak', cursive;
+}
+
+
 select {
     color: red;
 }

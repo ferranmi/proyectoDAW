@@ -1,6 +1,6 @@
-
-document.getElementById("passwd").addEventListener("blur", validaPasswd1, false);
-document.getElementById("email").addEventListener("blur", validaMail, false);
+window.onload = function() {
+$("#passwd").addEventListener("blur", validaPasswd1, false);
+$("#email").addEventListener("blur", validaMail, false);
 
 //Validación de los campos del formulario de login
 function validaMail() {
@@ -18,9 +18,7 @@ function validaMail() {
 
 function validaPasswd1() {
     if (this.value !== "") {
-
         var res = validar_clave(this.value);
-
         if (res) {
             trataCorrecto(this);
         } else {
@@ -38,4 +36,5 @@ function trataCorrecto(objeto) {
 
 function trataError(objeto, texto) {
     objeto.setCustomValidity(texto);
+}
 }
