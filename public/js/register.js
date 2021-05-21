@@ -1,5 +1,6 @@
+window.onload = function(){
 
-document.register.name.addEventListener("blur", validaNom, false);
+$("nom").addEventListener("blur", validaNom, false);
 document.register.lastname.addEventListener("blur", validaNom, false);
 document.register.passwd.addEventListener("blur", validaPasswd1, false);
 document.register.username.addEventListener("blur", validaUsuari, false);
@@ -109,4 +110,5 @@ function trataCorrecto(objeto) {
 
 function trataError(objeto, texto) {
     objeto.setCustomValidity(texto);
+}
 }
