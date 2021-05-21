@@ -16,7 +16,6 @@ class contactController extends Controller
     {
         $contact = new Contacts();
         $id = Contacts::GetMaxId();
-
         $contact->code = $id->id + 1;
         $contact->name = $request->input("name");
         $contact->email = $request->input("email");
