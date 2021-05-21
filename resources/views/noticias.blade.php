@@ -1,3 +1,4 @@
+
 @extends('layouts.base')
 @section('products')
 
@@ -13,7 +14,8 @@
     </div>
 </div>
 
-@endforeach
+    @endforeach
+
 
 
 

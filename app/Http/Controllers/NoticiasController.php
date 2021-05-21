@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class NoticiasController extends Controller
 {
+
     public function index()
     {
         //$news = Noticias::paginate(10);

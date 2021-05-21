@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('products')
 
+
     <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
         <div class=" col-lg-4 bg-danger rounded" style="width: 60px; height: 400px; border: solid black 10px;">
             <form class="register" name="register" method="post">
@@ -44,6 +45,7 @@
 
 
     <script>
+
        /* $("#name").blur(function() {
             if (this.value !== "") {
                 var correcto = true;
@@ -62,88 +64,73 @@
                         if (!isNaN(parseInt(res[i]))) {
                             correcto = false;
                         }
-                        i++;
+                    })
+
+                    $("#email").blur(function() {
+                        if (this.value !== "") {
+                            var expRegular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+
+                            if (!expRegular.test(this.value)) {
+                                trataError(this, "incorrect email");
+                            } else {
+                                trataCorrecto(this);
+                            }
+                        } else {
+                            trataCorrecto(this);
+                        }
+
+                    })
+
+                    $("#dni").blur(function() {
+                        valor = $("#dni").val();
+                        var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V',
+                            'H', 'L', 'C', 'K', 'E', 'T'
+                        ];
+
+                        if (!(/^\d{8}[A-Z]$/.test(valor))) {
+                            return false;
+                        }
+
+                        if (valor.charAt(8) != letras[(valor.substring(0, 8)) % 23]) {
+                            return false;
+                        }
+                    })
+
+                    /*              $("#passwd").blur(function() {
+                                      if (this.value !== "") {
+                                          res = (this.value).length;
+                                          // var res = validar_clave(this.value);
+
+                                          if (res) {
+                                              trataCorrecto(this);
+                                          } else {
+                                              trataError(this, "Invalid password");
+                                          }
+                                      } else {
+                                          trataCorrecto(this);
+                                      }
+                                  })
+
+                                  $("#passwd2").blur(function() {
+                                      if (this.value !== "") {
+                                          var pass1 = document.register.passwd.value;
+                                          if (this.value !== pass1) {
+                                              trataError(this, "passwords don't match");
+                                          } else {
+                                              trataCorrecto(this);
+                                          }
+                                      } else {
+                                          trataCorrecto(this);
+                                      }
+                                  })
+
+                    function trataCorrecto(objeto) {
+                        objeto.setCustomValidity("");
                     }
 
-                    if (!correcto) {
-                        trataError(this, "can not contain numbers");
-                    }
-                }
-
-                if (correcto) {
-                    trataCorrecto(this);
-                }
-            } else {
-                trataError(this, "can not be null");
-                alert("No pot ser null");
-            }
-        })
-
-        $("#email").blur(function() {
-            if (this.value !== "") {
-                var expRegular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
-
-                if (!expRegular.test(this.value)) {
-                    trataError(this, "incorrect email");
-                } else {
-                    trataCorrecto(this);
-                }
-            } else {
-                trataCorrecto(this);
-            }
-
-        })
-
-        $("#dni").blur(function() {
-            valor = $("#dni").val();
-            var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V',
-                'H', 'L', 'C', 'K', 'E', 'T'
-            ];
-
-            if (!(/^\d{8}[A-Z]$/.test(valor))) {
-                return false;
-            }
-
-            if (valor.charAt(8) != letras[(valor.substring(0, 8)) % 23]) {
-                return false;
-            }
-        })
-
-        /*              $("#passwd").blur(function() {
-                          if (this.value !== "") {
-                              res = (this.value).length;
-                              // var res = validar_clave(this.value);
-
-                              if (res) {
-                                  trataCorrecto(this);
-                              } else {
-                                  trataError(this, "Invalid password");
-                              }
-                          } else {
-                              trataCorrecto(this);
-                          }
-                      })
-
-                      $("#passwd2").blur(function() {
-                          if (this.value !== "") {
-                              var pass1 = document.register.passwd.value;
-                              if (this.value !== pass1) {
-                                  trataError(this, "passwords don't match");
-                              } else {
-                                  trataCorrecto(this);
-                              }
-                          } else {
-                              trataCorrecto(this);
-                          }
-                      })
-
-        function trataCorrecto(objeto) {
-            objeto.setCustomValidity("");
-        }
-
-        function trataError(objeto, texto) {
-            objeto.setCustomValidity(texto);
-        }*/
+                    function trataError(objeto, texto) {
+                        objeto.setCustomValidity(texto);
+                    }*/
 
     </script>
 

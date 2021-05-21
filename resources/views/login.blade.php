@@ -8,7 +8,7 @@
                     <h3 class="mb-2 display-4">Login</h3>
                     <div>
                         <label>Email: </label>
-                        <input type="text" id="email" name="email" placeholder=" Mail " required/>
+                        <input type="text" id="email_login" name="email" placeholder=" Mail " required/>
                     </div>
                     <div>
                         <label>Passwd: </label>

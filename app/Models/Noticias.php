@@ -12,4 +12,9 @@ class Noticias extends Model
     {
         return $query->paginate(10);
     }
+
+    public function scopeReturnNew($query, $id)
+    {
+        return $query->where('code', $id)->first();
+    }
 }
