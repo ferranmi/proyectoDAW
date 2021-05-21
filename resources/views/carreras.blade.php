@@ -16,8 +16,5 @@
 @endforeach
 
 
-<div class="col-lg-12  justify-content-center d-flex ">
-    {{$news->links() }}
-</div>
 
 @endsection
