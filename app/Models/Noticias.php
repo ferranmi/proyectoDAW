@@ -17,4 +17,9 @@ class Noticias extends Model
     {
         return $query->where('code', $id)->first();
     }
+
+    public function scopeGetMaxId($query)
+    {
+        return $query->OrderByDesc('id')->first();
+    }
 }

@@ -45,4 +45,6 @@ Route::get('/noticias/{id}', [NoticiasController::class, 'show']);
 
 Route::get('/nova_noticia', [NoticiasController::class, 'create']);
 Route::post('/nova_noticia', [NoticiasController::class, 'store']);
+Route::get('/noticias/{id}/edit', [NoticiasController::class, 'edit']);
+Route::put('/noticias/{id}', [NoticiasController::class, 'update']);
 Route::get('/carreras', [RacesController::class, 'index']);

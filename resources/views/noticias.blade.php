@@ -10,7 +10,7 @@
             </a></h2>
         <span class="text-muted"> {{ $new->content }} </span>
         <p class="lead"> {{ $new->commentaries }} </p>
-        <div class="col-md-5"> {{ $new->image }} </div>
+        <div class="col-md-5"> <img src="{{Storage::url($new->image)}}"> </div>
     </div>
 </div>
 
