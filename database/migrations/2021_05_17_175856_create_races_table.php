@@ -17,6 +17,7 @@ class CreateRacesTable extends Migration
             $table->id();
             $table->string('code');
             $table->string('name');
+            $table->string('descripcion');
             $table->text('distance')->nullable();
             $table->text('time_start');
             $table->text('image');

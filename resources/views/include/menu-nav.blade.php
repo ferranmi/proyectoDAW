@@ -1,13 +1,12 @@
-<nav class="nav justify-content-between menu-nav">
+
+<nav class="nav justify-content-between menu-nav menu_desplegable_navbar">
     <a href="/">Inicio</a>
-    <a href="#">Carreras</a>
+    <a href="/carreras">Carreras</a>
     <a href="/noticias">Noticias</a>
     <a href="#">Preguntame algo</a>
-    <a href="#">Contacto</a>
-    <select name="Idiomas" id="select">
-        <option selected> Idiomas </option>
-        <option value="login" id="login"> Español </option>
-        <option value="registre" id="registre"> Ingles </option>
-    </select>
+    <a href="/contacto">Contacto</a>
+    <a href="">Castellano</a>
+    <a href="">Ingles</a>
     <a href="/login">Login</a>
+
 </nav>
