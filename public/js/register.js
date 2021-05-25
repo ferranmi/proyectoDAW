@@ -1,47 +1,40 @@
 window.onload = function(){
-
-$("nom").addEventListener("blur", validaNom, false);
-document.register.lastname.addEventListener("blur", validaNom, false);
-document.register.passwd.addEventListener("blur", validaPasswd1, false);
-document.register.username.addEventListener("blur", validaUsuari, false);
-document.register.email.addEventListener("blur", validaMail, false);
-document.register.passwd2.addEventListener("blur", validaPasswd2, false);
+$("#name").addEventListener("blur", validaNom, false);
+/*
+$("#lastname").on("blur", validaCognom, false);
+$("#email").on("blur", validaMail, false);
+$("#passwd").on("blur", validaPasswd1, false);
+$("#passwd2").on("blur", validaPasswd2, false);
+$("#datanac").on("blur", validaData, false);*/
 
 //Validación de los campos del formulario de registro
-function validaNom() {
-    if (this.value !== "") {
-        var correcto = true;
-        var res = this.value.split("");
+console.log("tienes algun problema?")
 
+function validaNom() {
+    console.log("Hola");
+    alert("gilipollas")
+    /*
+    if (this.value !== "") {
         //longitud debe ser mayor o igual a 3
         if (this.value.length < 3) {
             correcto = false;
             trataError(this, "wrong length");
+            return ;
         }
-
         //No puede contener numeros
         if (correcto) {
-            var i = 0;
-            while (correcto && i < res.length) {
-                if (!isNaN(parseInt(res[i]))) {
+            for(var j = 0; j<this.value.length; j++ ){
+                if( !isNaN(parseInt(this.value[j]))  ){
                     correcto = false;
+                    trataError(this,"No se permiten valores numericos") ;
+                    return  ;
                 }
-                i++;
-            }
-
-            if (!correcto) {
-                trataError(this, "can not contain numbers");
             }
         }
-
-        if (correcto) {
-            trataCorrecto(this);
-        }
-    } else {
         trataCorrecto(this);
-    }
+    }*/
 }
-
+/*
 function validaMail() {
     if (this.value !== "") {
         var expRegular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
@@ -55,24 +48,6 @@ function validaMail() {
         trataCorrecto(this);
     }
 
-}
-
-function validaUsuari() {
-    if (this.value !== "") {
-
-        if (this.value.length < 5) {
-            trataError(this, "minimum length 5 characters");
-
-        } else {
-            if (this.value.length > 15) {
-                trataError(this, "maximum length 15 characters");
-            } else {
-                trataCorrecto(this);
-            }
-        }
-    } else {
-        trataCorrecto(this);
-    }
 }
 
 function validaPasswd1() {
@@ -101,14 +76,14 @@ function validaPasswd2() {
     } else {
         trataCorrecto(this);
     }
-}
+}*/
 
 function trataCorrecto(objeto) {
     objeto.setCustomValidity("");
 }
 
-
 function trataError(objeto, texto) {
     objeto.setCustomValidity(texto);
+    objeto.reportValidity();
 }
 }

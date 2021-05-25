@@ -1,9 +1,7 @@
 @extends('layouts.base')
 @section('products')
-
-
     <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
-        <div class=" col-lg-4 bg-danger rounded" style="width: 60px; height: 400px; border: solid black 10px;">
+        <div class=" col-lg-4 bg-danger rounded dissenyForms">
             <form class="register" name="register" method="post">
                 @csrf
                 <h3 class="display-4 mb-2">Register</h3>
@@ -42,29 +40,30 @@
         </div>
     </div>
 
-
-
     <script>
-
-       /* $("#name").blur(function() {
+      /*  $("#name").blur(function() {
+            console.log("hola")
+            var correcto = true;
             if (this.value !== "") {
-                var correcto = true;
-                var res = this.value.split("");
-
                 //longitud debe ser mayor o igual a 3
                 if (this.value.length < 3) {
                     correcto = false;
                     trataError(this, "wrong length");
+                    return ;
                 }
-
                 //No puede contener numeros
                 if (correcto) {
-                    var i = 0;
-                    while (correcto && i < res.length) {
-                        if (!isNaN(parseInt(res[i]))) {
+                    for(var j = 0; j<this.value.length; j++ ){
+                        if( !isNaN(parseInt(this.value[j]))  ){
                             correcto = false;
+                            trataError(this,"No se permiten valores numericos") ;
+                            return  ;
                         }
-                    })
+                    }
+                }
+                trataCorrecto(this);
+            }
+        })
 
                     $("#email").blur(function() {
                         if (this.value !== "") {
@@ -88,15 +87,18 @@
                         ];
 
                         if (!(/^\d{8}[A-Z]$/.test(valor))) {
-                            return false;
+                            trataError(this, "dni incorrecte");
+                            return ;
                         }
 
                         if (valor.charAt(8) != letras[(valor.substring(0, 8)) % 23]) {
-                            return false;
+                            trataError(this, " letra incorrecta")
+                            return ;
                         }
+                        trataCorrecto(this);
                     })
 
-                    /*              $("#passwd").blur(function() {
+                               /*  $("#passwd").blur(function() {
                                       if (this.value !== "") {
                                           res = (this.value).length;
                                           // var res = validar_clave(this.value);
@@ -130,6 +132,7 @@
 
                     function trataError(objeto, texto) {
                         objeto.setCustomValidity(texto);
+                        objeto.reportValidity();
                     }*/
 
     </script>

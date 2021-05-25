@@ -1,6 +1,8 @@
 window.onload = function() {
-$("#passwd").addEventListener("blur", validaPasswd1, false);
-$("#email").addEventListener("blur", validaMail, false);
+$("#email").on("blur", validaMail, false);
+$("#passwd").on("blur", validaPasswd1, false);
+console.log("tienes algun problema?")
+
 
 //Validación de los campos del formulario de login
 function validaMail() {
