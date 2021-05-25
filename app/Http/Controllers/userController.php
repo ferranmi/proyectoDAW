@@ -27,11 +27,21 @@ class userController extends Controller
         /*
 Validaciones que no sean null, nombre y apellido sin numeros dni formato correcto, passwd y passwd 2 el mismo y encriptado
 */
+        //dd($request);
         $user->dni = $request->dni;
         $user->name = $request->name;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
-        //$user->password=$request->passwd;
+        $passwd1=$request->passwd;
+        $passwd2=$request->passwd2;
+        if(empty($passwd2)){
+            if(empty($passwd1)){
+                if($passwd1!=$passwd2){
+                    return back()->withInput();
+                }
+            }
+        }
+
         $passHash = password_hash($request->passwd, PASSWORD_BCRYPT);
         $user->password = $passHash;
         $request->datanac = date('Y-m-d H:i:s');
@@ -46,18 +56,18 @@ Validaciones que no sean null, nombre y apellido sin numeros dni formato correct
     {
         $email = $request->input("email");
         $password = $request->input("passwd");
-        $user_login = User::LogIn($email);
-        if ($user_login->email == $email) {
-            if (password_verify($password, $user_login->password)) {
-                // dd('passwd i email');
-                return view('products');
-            } else {
-                return back()->withInput();
-                // dd('no passwd pero si email');
+        if (!empty($email) && !empty($password)){
+            $user_login = User::LogIn($email);
+            if(!empty($user_login->email)){
+                if ($user_login->email == $email) {
+                    if (password_verify($password, $user_login->password)) {
+                        return redirect('/',);
+                    } else {
+                    }
+                }
             }
             return back()->withInput();
-            // dd('no email');
         }
-        return back()->withInput();
+
     }
 }

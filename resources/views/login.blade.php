@@ -8,14 +8,16 @@
                     <h3 class="mb-2 display-4">Login</h3>
                     <div>
                         <label>Email: </label>
-                        <input type="text" id="email_login" name="email" placeholder=" Mail " required/>
+                        <input type="text" id="email_login" name="email" placeholder=" Mail " value="{{ old('email') }}"
+                            required />
                     </div>
                     <div>
                         <label>Passwd: </label>
-                        <input type="password" id="passwd_login" name="passwd"  placeholder="Contraseña" required/>
+                        <input type="password" id="passwd_login" name="passwd" placeholder="Contraseña" required />
                     </div>
                     <input class="btn btn-info btn-mg" type="submit" value="Login" id="submit_login" name="submit"></input>
-                    <p>   <a href="/register" rel="register" class="linkform">You don't have an account yet? Register here</a>    </p>
+                    <p> <a href="/register" rel="register" class="linkform">You don't have an account yet? Register here</a>
+                    </p>
                 </form>
             </div>
         </div>
