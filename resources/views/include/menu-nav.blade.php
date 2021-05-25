@@ -2,7 +2,6 @@
     <a href="/">Inicio</a>
     <a href="/carreras">Carreras</a>
     <a href="/noticias">Noticias</a>
-    <a href="#">Preguntame algo</a>
     <a href="/contact">Contacto</a>
     <a href="">Castellano</a>
     <a href="">Ingles</a>

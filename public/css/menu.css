@@ -3,9 +3,11 @@ html {
     padding: 0px;
 }
 
+
 .div-double {
     margin-top: 20px;
 }
+
 
 body {
     background-color: rgb(241, 241, 241);
@@ -17,6 +19,8 @@ p {
 
 a {
     font-family: 'Langar', cursive;
+    text-decoration: none !important;
+
 }
 
 h3 {
@@ -62,6 +66,12 @@ select {
     font-size: 1.75em;
 }
 
+.menu-nav a:hover {
+    padding: 5px;
+    border: 1px solid;
+    background-color: rgb(240, 142, 142);
+}
+
 .footer-ajustes {
     color: aqua;
 }
@@ -69,4 +79,9 @@ select {
 .targetas-products {
     width: 70%;
     height: 100%;
+}
+
+
+.dissenyForms {
+    border: solid black 10px;
 }
