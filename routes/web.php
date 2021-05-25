@@ -41,7 +41,7 @@ Route::post('/login', [userController::class, 'access']);
 Route::get('/contact', [contactController::class, 'index']);
 Route::post('/contact', [contactController::class, 'store']);
 Route::get('/noticias', [NoticiasController::class, 'index']);
-Route::get('/noticias/{id}', [NoticiasController::class, 'show']);
+Route::get('/noticias/{id}', [NoticiasController::class, 'show'])->name('noticias.show');
 
 Route::get('/nova_noticia', [NoticiasController::class, 'create']);
 Route::post('/nova_noticia', [NoticiasController::class, 'store']);
