@@ -3,7 +3,7 @@
 @section('products')
 <div class="container">
     <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
-        <div class=" col-lg-4  bg-danger rounded dissenyForms">
+        <div class=" col-lg-4  bg-danger rounded dissenyBorders">
             <form class="contact" name="contact" method="post">
                 @csrf
                 <h3 class="mb-2 display-4">Contacto</h3>

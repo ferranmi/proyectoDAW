@@ -1,8 +1,7 @@
 @extends('layouts.base')
 @section('products')
-
     <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
-        <div class=" col-lg-4 bg-danger rounded dissenyForms">
+        <div class=" col-lg-4 bg-danger rounded dissenyBorders">
             <form class="register" name="register" method="post">
                 @csrf
                 <h3 class="display-4 mb-2">Register</h3>
@@ -12,7 +11,7 @@
                 </div>
                 <div>
                     <label>First Name:</label>
-                    <input type="text" id="name" name="name" required value="{{ old('name') }}" />
+                    <input class="name" type="text" id="name" name="name" required value="{{ old('name') }}" />
                 </div>
                 <div>
                     <label>Last Name:</label>
@@ -34,159 +33,143 @@
                     <label>Data nacimiento:</label>
                     <input type="date" id="datanac" name="datanac" required value="{{ old('datanac') }}" />
                 </div>
+                <div>
+                <input class="btn btn-info btn-mg" type="submit" value="Register" id="submit" name="submit" />
+                <p> <a href="/login" class="linkform">You have an account already? Log in here</a></p>
+            </form>
         </div>
+    </div>
 
-        <script>
-            /*  $("#name").blur(function() {
-                    console.log("hola")
-                    var correcto = true;
-                    if (this.value !== "") {
-                        //longitud debe ser mayor o igual a 3
-                        if (this.value.length < 3) {
-                            correcto = false;
-                            trataError(this, "wrong length");
-                            return ;
-                        }
-                        //No puede contener numeros
-                        if (correcto) {
-                            for(var j = 0; j<this.value.length; j++ ){
-                                if( !isNaN(parseInt(this.value[j]))  ){
-                                    correcto = false;
-                                    trataError(this,"No se permiten valores numericos") ;
-                                    return  ;
-                                }
-                            }
-                        }
-                        trataCorrecto(this);
-                    }
-                })
-
-                                //No puede contener numeros
-                                if (correcto) {
-                                    var i = 0;
-                                    while (correcto && i < res.length) {
-                                        if (!isNaN(parseInt(res[i]))) {
-                                            correcto = false;
-                                        }
-                                    })
-
-                                    $("#email").blur(function() {
-                                        if (this.value !== "") {
-                                            var expRegular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
-
-                                            if (!expRegular.test(this.value)) {
-                                                trataError(this, "incorrect email");
-                                            } else {
-                                                trataCorrecto(this);
-                                            }
-                                        } else {
-                                            trataCorrecto(this);
-                                        }
-
-
-                                    })
-
-                                    $("#dni").blur(function() {
-                                        valor = $("#dni").val();
-                                        var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V',
-                                            'H', 'L', 'C', 'K', 'E', 'T'
-                                        ];
-
-                                        if (!(/^\d{8}[A-Z]$/.test(valor))) {
-                                            return false;
-                                        }
-
-                                        if (valor.charAt(8) != letras[(valor.substring(0, 8)) % 23]) {
-                                            return false;
-                                        }
-                                    })
-
-                                    /*              $("#passwd").blur(function() {
-                                                      if (this.value !== "") {
-                                                          res = (this.value).length;
-                                                          // var res = validar_clave(this.value);
-
-                                                          if (res) {
-                                                              trataCorrecto(this);
-                                                          } else {
-                                                              trataError(this, "Invalid password");
-                                                          }
-                                                      } else {
-                                                          trataCorrecto(this);
-                                                      }
-                                                  })
-
-                                                  $("#passwd2").blur(function() {
-                                                      if (this.value !== "") {
-                                                          var pass1 = document.register.passwd.value;
-                                                          if (this.value !== pass1) {
-                                                              trataError(this, "passwords don't match");
-                                                          } else {
-                                                              trataCorrecto(this);
-                                                          }
-                                                      } else {
-                                                          trataCorrecto(this);
-                                                      }
-                                                  })
-
-                                    function trataCorrecto(objeto) {
-                                        objeto.setCustomValidity("");
-                                    }
-
-                                    function trataError(objeto, texto) {
-                                        objeto.setCustomValidity(texto);
-                                    }
-
-
+    <script>
+       /* $("#dni").blur(function() {
+            valor = $("#dni").val();
+            var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V',
+            'H', 'L', 'C', 'K', 'E', 'T'];
+            if(this.value !== ""){
                 if (!(/^\d{8}[A-Z]$/.test(valor))) {
-                    trataError(this, "dni incorrecte");
-                    return;
-                }
+                trataError(this, "Dni incorrecte");
+                return ;
+            }
 
-                if (valor.charAt(8) != letras[(valor.substring(0, 8)) % 23]) {
-                    trataError(this, " letra incorrecta")
-                    return;
+            if (valor.charAt(8) != letras[(valor.substring(0, 8)) % 23]) {
+                trataError(this, "Letra incorrecta")
+                return ;
+            }
+            }else{
+                trataError(this,"Rellena este campo")
+            }
+
+            trataCorrecto(this);
+        })
+
+        $("#name").blur(function() {
+            console.log("hola")
+            var correcto = true;
+            if (this.value !== "") {
+                //longitud debe ser mayor o igual a 3
+                if (this.value.length < 3) {
+                    correcto = false;
+                    trataError(this, "Nombre no valido muy corto");
+                    return ;
                 }
+                //No puede contener numeros
+                if (correcto) {
+                    for(var j = 0; j<this.value.length; j++ ){
+                        if( !isNaN(parseInt(this.value[j]))  ){
+                            correcto = false;
+                            trataError(this,"No se permiten valores numericos") ;
+                            return  ;
+                        }
+                    }
+                }
+            }else{
+                trataError(this, "Rellena este campo")
+            }
+            trataCorrecto(this);
+        })
+        $("#lastname").blur(function() {
+            console.log("hola")
+            var correcto = true;
+            if (this.value !== "") {
+                if (correcto) {
+                    for(var j = 0; j<this.value.length; j++ ){
+                        if( !isNaN(parseInt(this.value[j]))  ){
+                            correcto = false;
+                            trataError(this,"No se permiten valores numericos") ;
+                            return  ;
+                        }
+                    }
+                }
+            }else{
+                trataError(this,"Rellena el campo")
+            }
+            trataCorrecto(this);
+
+        })
+
+        $("#email").blur(function() {
+            if (this.value !== "") {
+                var expRegular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+                if (!expRegular.test(this.value)) {
+                    trataError(this, "incorrect email");
+                }
+            }else{
+                trataError(this, "Rellena el campo")
+            }
+            trataCorrecto(this)
+
+        })
+
+
+
+        $("#passwd").blur(function() {
+            if (this.value !== "") {
+                return;
+            }else{
+                trataError(this, "Rellena el campo");
+            }
                 trataCorrecto(this);
-                })
+        })
 
-                  $("#passwd").blur(function() {
-                                              if (this.value !== "") {
-                                                  res = (this.value).length;
-                                                  // var res = validar_clave(this.value);
+        /*$("#passwd2").blur(function() {
+        var pass2 = $("#passwd").value;
+            if (this.value !== "") {
+                if (this.value !== pass2) {
+                    trataError(this, "Las contraseñas no coinciden");
+                    return;
+                }
+            }else{
+                trataError(this, " rellena el campo")
+                return;
+            }
+            trataCorrecto(this);
+        })
 
-                                                  if (res) {
-                                                      trataCorrecto(this);
-                                                  } else {
-                                                      trataError(this, "Invalid password");
-                                                  }
-                                              } else {
-                                                  trataCorrecto(this);
-                                              }
-                                          })
+        $('#datanac').blur(function(){
+        var d = document.getElementById("datanac").value;
+        var inDate = new Date(d);
+        var anio = inDate.getFullYear();
+        var fec_actual = new Date() ;
+        var fec_anio = fec_actual.getFullYear() ;
+        var edad   =  fec_anio -anio ;
+            if (edad >= 18) {
+            document.getElementById("result").innerHTML = edad + " Bienvenido al blog www.programacionparatodos.com";
+            } else{
+            document.getElementById("result").innerHTML = "ACCESO NO VALIDO";
+            }
+        })
 
-                                          $("#passwd2").blur(function() {
-                                              if (this.value !== "") {
-                                                  var pass1 = document.register.passwd.value;
-                                                  if (this.value !== pass1) {
-                                                      trataError(this, "passwords don't match");
-                                                  } else {
-                                                      trataCorrecto(this);
-                                                  }
-                                              } else {
-                                                  trataCorrecto(this);
-                                              }
-                                          })
 
-                            function trataCorrecto(objeto) {
-                                objeto.setCustomValidity("");
-                            }
 
-                            function trataError(objeto, texto) {
-                                objeto.setCustomValidity(texto);
-                                objeto.reportValidity();
-                            }*/
 
-        </script>
+        function trataCorrecto(objeto) {
+            objeto.setCustomValidity("");
+        }
+        function trataError(objeto, texto) {
+            objeto.setCustomValidity(texto);
+            objeto.reportValidity();
+        }*/
 
-    @endsection
+    </script>
+
+@endsection

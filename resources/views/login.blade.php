@@ -2,13 +2,13 @@
 @section('products')
     <div class="container">
         <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
-            <div class=" col-lg-4 bg-danger rounded dissenyForms">
+            <div class=" col-lg-4 bg-danger rounded dissenyBorders">
                 <form class="access" name="access" method="post">
                     @csrf
                     <h3 class="mb-2 display-4">Login</h3>
                     <div>
                         <label>Email: </label>
-                        <input type="text" id="email_login" name="email" placeholder=" Mail " value="{{ old('email') }}"
+                        <input class="email" type="text" id="email_login" name="email" placeholder=" Mail " value="{{ old('email') }}"
                             required />
                     </div>
                     <div>

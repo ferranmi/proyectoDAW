@@ -20,56 +20,11 @@
         @endforeach
     </div>
 
-
-
-
-
-
-    <!-- <div class="col-lg-6">
-                                                                <div class="card flex-md-row mb-5 box-shadow h-md-250 div-products-targetas mx-auto">
-                                                                    <div class="card-body d-flex flex-column align-items-start  ">
-                                                                        <strong class="  d-inline-block mb-2 text-primary">World</strong>
-                                                                        <h3 class="mb-0">
-                                                                            <a class="text-dark" href="#">Una gran final diferent</a>
-                                                                        </h3>
-                                                                        <div class=" mb-1 text-muted">Maig 12</div>
-                                                                        <p class="card-text mb-auto ">Es una gran final una mica diferent, l'any 2020 la final de les golden
-                                                                            world trail series
-                                                                            es va fer en 4 etapes.</p>
-                                                                        <a href="#">Continue reading</a>
-                                                                    </div>
-                                                                    <img class=" card-img-right flex-auto d-none d-md-block " style="width: 200px; height: 225px;"
-                                                                        src="./images/azores.jpg" data-holder-rendered="true">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6 ">
-                                                                <div class="card flex-md-row div-products-targetas mx-auto">
-                                                                    <div class="card-body d-flex flex-column align-items-start">
-                                                                        <strong class="d-inline-block text-success">Curses</strong>
-                                                                        <h3>
-                                                                            <a class="text-dark" href="#">Olla de Nuria a les Golden</a>
-                                                                        </h3>
-                                                                        <div class="text-muted">Maig 11</div>
-                                                                        <p class="card-text">Despres de la caiguda del titan dels 42km de la Zegama Aizkorri finalment sera la
-                                                                            olla de nuria
-                                                                            qui formara part aquesta temporada de les golden world Trail series.</p>
-                                                                        <a href="#">Continue reading</a>
-                                                                    </div>
-                                                                    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"
-                                                                        alt="Thumbnail [200x250]" src="./images/Olla_de_Nuria.jpg" data-holder-rendered="true"
-                                                                        style="width: 200px; height: 225px;">
-                                                                </div>
-                                                            </div> -->
-
-
-
-    <div class="col-lg-12 d-flex justify-content-center align-item-center mt-5 mb-5">
+    <div class="col-lg-12 d-flex mt-5 mb-5">
 
         @foreach ($news as $new)
-
-
             <div class="col-lg-3">
-                <div class="card mb-3 box-shadow targetas-products">
+                <div class="d-block card mb-3 box-shadow targetas-products mx-auto">
                     <img class="card-img-top"
                         data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                         alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
