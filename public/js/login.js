@@ -11,7 +11,6 @@ $(document).ready(function () {
     function validaMail() {
         if (this.value !== "") {
             var expRegular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
-
             if (!expRegular.test(this.value)) {
                 trataError(this, "Email no valido");
             } else {
