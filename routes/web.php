@@ -36,15 +36,24 @@ Route::get('/', [Controller::class, 'index']);
 
 Route::get('/register', [userController::class, 'register']);
 Route::post('/register', [userController::class, 'store']);
+
 Route::get('/login', [userController::class, 'login']);
 Route::post('/login', [userController::class, 'access']);
+
 Route::get('/contact', [contactController::class, 'index']);
 Route::post('/contact', [contactController::class, 'store']);
+
 Route::get('/noticias', [NoticiasController::class, 'index']);
 Route::get('/noticias/{id}', [NoticiasController::class, 'show'])->name('noticias.show');
-
 Route::get('/nova_noticia', [NoticiasController::class, 'create']);
 Route::post('/nova_noticia', [NoticiasController::class, 'store']);
 Route::get('/noticias/{id}/edit', [NoticiasController::class, 'edit']);
 Route::put('/noticias/{id}', [NoticiasController::class, 'update']);
+
 Route::get('/carreras', [RacesController::class, 'index']);
+Route::get('/nova_carrera', [RacesController::class, 'create']);
+Route::post('/nova_carrera', [RacesController::class, 'store']);
+Route::get('/carreras/{id}', [RacesController::class, 'show'])->name('carreras.show');
+Route::get('/carreras/{id}/edit', [RacesController::class, 'edit']);
+Route::put('/carreras/{id}', [RacesController::class, 'update']);
+

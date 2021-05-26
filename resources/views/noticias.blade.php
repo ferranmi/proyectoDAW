@@ -7,9 +7,10 @@
                         titulo: {{ $new->title }}
 
                     </a></h2>
-                <span class="text-muted"> contenido: {{ $new->content }} </span>
-                <p class="lead"> comentarios: {{ $new->commentaries }} </p>
-                <div class="col-md-5"> imatge: {{ $new->image }} </div>
+                <span class="text-muted"> contenido: {{ $new->d_short }} </span>
+                <div class="col-md-5"> <img style="width: auto;" src="{{ Storage::url($new->image) }}"> </div>
+            </div>
+        </div>
 
     @endforeach
 
@@ -19,10 +20,11 @@
     </div>
 
     <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-4 ">
-
-        <p> <a class="btn btn-danger btn-mg" href="/nova_noticia"> Crea una noticia </a>
-        </p>
-
+        @if ($admin == true)
+            <p>
+                <a class="btn btn-danger btn-mg" href="/nova_noticia"> Crea una noticia </a>
+            </p>
+        @endif
 
     </div>
 

@@ -3,7 +3,7 @@
 
     <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
         <div class="col-lg-8 col-md-8 col-sm-8 bg-danger rounded dissenyForms ">
-            <form class="register" name="nueva_entrada" method="post">
+            <form class="register" name="nueva_entrada" method="post" enctype="multipart/form-data">
                 @csrf
                 <h3 class="mb-2 display-4 ">Nueva Entrada</h3>
                 <div>
@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <label>Descripcion Corta:</label>
-                    <textarea type="text" id="d_corta" name="d_short" value="{{ old('d_corta') }}"></textarea>
+                    <textarea type="text" id="d_corta" name="d_short">{{ old('d_corta') }}</textarea>
                     @error('d_short')
                         <br>
                         <small>*{{ $message }}</small>
@@ -26,8 +26,8 @@
                 </div>
                 <div class="form-group">
                     <label>Descripcion Larga: </label>
-                    <textarea class=" form-control form-control-sm " id="d_larga" name="d_larga" required
-                        value="{{ old('content') }}"></textarea>
+                    <textarea class=" form-control form-control-sm " id="d_larga" name="d_larga"
+                        required>{{ old('content') }}</textarea>
                 </div>
                 <div>
                     <label for="file">File</label>

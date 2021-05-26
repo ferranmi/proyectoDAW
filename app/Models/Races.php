@@ -10,6 +10,16 @@ class Races extends Model
     use HasFactory;
     public function scopeReturnAll($query)
     {
-        return $query->limit(2)->get();
+        return $query->paginate(10);
+    }
+
+    public function scopeReturnRace($query, $id)
+    {
+        return $query->where('id', $id)->first();
+    }
+
+    public function scopeGetMaxId($query)
+    {
+        return $query->OrderByDesc('id')->first();
     }
 }

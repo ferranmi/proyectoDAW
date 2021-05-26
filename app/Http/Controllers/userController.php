@@ -61,6 +61,7 @@ Validaciones que no sean null, nombre y apellido sin numeros dni formato correct
             if(!empty($user_login->email)){
                 if ($user_login->email == $email) {
                     if (password_verify($password, $user_login->password)) {
+                        $request->session()->put('user', $user_login);
                         return redirect('/',);
                     } else {
                     }

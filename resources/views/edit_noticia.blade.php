@@ -9,7 +9,7 @@
                 @method('PUT')
 
 
-                <h1>Nueva Entrada</h1>
+                <h1>Editar Entrada</h1>
                 <div>
                     <label>Titulo Noticia:</label>
                     <input type="text" id="titulo_noticia" name="titulo_noticia"
