@@ -8,7 +8,6 @@
                 @csrf
                 @method('PUT')
 
-
                 <h1>Editar Entrada</h1>
                 <div>
                     <label>Titulo Noticia:</label>
@@ -41,16 +40,13 @@
                 <div>
                     <label for="file">File</label>
                     <input type="file" id="file" name="file" value="{{ old('file', $news->image) }}" />
-                    @error('file')
-                        <br>
-                        <small>*{{ $message }}</small>
-                        <br>
-                    @enderror
+
                 </div>
-
-
                 <input class=" btn btn-danger" type="submit" value="Actualizar" id="submit" name="submit" />
             </form>
+
         </div>
+
     </div>
+
 @endsection

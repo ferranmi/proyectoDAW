@@ -82,6 +82,7 @@ select {
 }
 
 
-.dissenyForms {
-    border: solid black 10px;
+.dissenyBorders {
+    border: solid black 6px;
+    border-radius: 10px;
 }

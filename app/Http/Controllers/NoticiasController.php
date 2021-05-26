@@ -49,7 +49,7 @@ class NoticiasController extends Controller
         $new->image = $request->file('file')->store('public');
 
         $new->save();
-        return redirect()->route("noticias.show" ,[$new]);
+        return redirect()->route("noticias.show", [$new]);
     }
 
     public function show($id)

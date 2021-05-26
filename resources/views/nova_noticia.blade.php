@@ -2,7 +2,7 @@
 @section('products')
 
     <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
-        <div class="col-lg-8 col-md-8 col-sm-8 bg-danger rounded dissenyForms ">
+        <div class="col-lg-8 col-md-8 col-sm-8 bg-danger rounded dissenyBorders ">
             <form class="register" name="nueva_entrada" method="post" enctype="multipart/form-data">
                 @csrf
                 <h3 class="mb-2 display-4 ">Nueva Entrada</h3>
