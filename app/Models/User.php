@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         return $query->where('email', '=', $mail)->first();
     }
+
+    public function scopeReturnAll($query){
+        return $query->get();
+    }
 }

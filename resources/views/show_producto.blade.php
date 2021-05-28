@@ -4,29 +4,29 @@
         <div class="col-md-8">
             <p>
             <h2 class="featurette-heading col-md-12">
-                {{ $news->title }}
+                {{ $productos->name }}
             </h2>
             </p>
             <p class="text-muted col-md-12">
-                {{ $news->d_short }}
+                {{ $productos->price }}
             </p>
             <div class="row">
                 <p class="lead col-md-6">
-                    {{ $news->content }}
+                    {{ $productos->stock }}
                 </p>
                 <div class="col-md-6">
-                    <img src="{{ Storage::url($news->image) }}">
+                    <img src="{{ Storage::url($productos->image) }}">
                 </div>
             </div>
-            <p class="lead col-md-12"> {{ $news->commentaries }} </p>
+            <p class="lead col-md-12"> {{ $productos->descripcio }} </p>
         </div>
     </div>
 
     <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-4 ">
         @if ($admin == true)
             <p>
-                <a class="btn btn-success btn-mg" href="/noticias/{{ $news->code }}/edit"> Editar noticia </a>
-                <a class="btn btn-danger btn-mg" href="/delete_noticias/{{ $news->code }}"> Eliminar noticia </a>
+                <a class="btn btn-success btn-mg" href="/productos/{{ $productos->code }}/edit"> Editar noticia </a>
+                <a class="btn btn-danger btn-mg" href="/delete_productos/{{ $productos->code }}"> Eliminar noticia </a>
             </p>
         @endif
 

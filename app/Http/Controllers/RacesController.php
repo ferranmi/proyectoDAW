@@ -17,8 +17,10 @@ class RacesController extends Controller
         $admin=false;
 
         if (session()->has('user')){
-            if(session('user')->type_user=='A'){
-                $admin=true;
+            if (!empty(session('user'))){
+                if(session('user')->type_user=='A'){
+                    $admin=true;
+                }
             }
         }
 
@@ -63,8 +65,10 @@ class RacesController extends Controller
         $admin=false;
 
         if (session()->has('user')){
-            if(session('user')->type_user=='A'){
-                $admin=true;
+            if (!empty(session('user'))){
+                if(session('user')->type_user=='A'){
+                    $admin=true;
+                }
             }
         }
         //dd($race->time_start);
@@ -94,6 +98,14 @@ class RacesController extends Controller
         //dd($race);
         $race->save();
         return redirect("/carreras");
+
+    }
+
+    public function destroy ($id){
+
+        $new = Races::ReturnRace($id);
+        $new->delete();
+        return redirect('/carreras');
 
     }
 }

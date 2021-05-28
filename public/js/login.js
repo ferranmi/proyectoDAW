@@ -17,13 +17,13 @@ $(document).ready(function () {
             } else {
                 trataCorrecto(this);
             }
-        }else{
+        } else {
             trataCorrecto(this);
         }
     }
 
 
-   /* function validaPasswd1() {
+    function validaPasswd1() {
         if (this.value !== "") {
             var res = validar_clave(this.value);
             if (res) {
@@ -34,7 +34,7 @@ $(document).ready(function () {
         } else {
             trataCorrecto(this);
         }
-    }*/
+    }
 
     function trataCorrecto(objeto) {
         objeto.setCustomValidity("");
