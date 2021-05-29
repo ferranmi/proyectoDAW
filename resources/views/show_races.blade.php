@@ -31,7 +31,8 @@
     <div class="col-lg-12  justify-content-center d-flex  mb-2 ">
         @if ($admin == true)
             <p>
-                <a class="btn btn-danger btn-mg" href="/carreras/{{ $race->id}}/edit"> Editar carrera </a>
+                <a class="btn btn-success btn-mg" href="/carreras/{{ $race->id }}/edit"> Editar carrera </a>
+                <a class="btn btn-danger btn-mg" href="/delete_carreras/{{ $race->id }}"> Eliminar carrera </a>
             </p>
         @endif
     </div>

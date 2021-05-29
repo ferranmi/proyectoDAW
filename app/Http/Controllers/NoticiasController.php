@@ -13,9 +13,12 @@ class NoticiasController extends Controller
         $news = Noticias::ReturnAll();
         $admin = false;
 
+
         if (session()->has('user')) {
-            if (session('user')->type_user == 'A') {
-                $admin = true;
+            if (!empty(session('user'))) {
+                if (session('user')->type_user == 'A') {
+                    $admin = true;
+                }
             }
         }
 
@@ -55,10 +58,13 @@ class NoticiasController extends Controller
     public function show($id)
     {
         $news = Noticias::ReturnNew($id);
+
         $admin = false;
         if (session()->has('user')) {
-            if (session('user')->type_user == 'A') {
-                $admin = true;
+            if (!empty(session('user'))) {
+                if (session('user')->type_user == 'A') {
+                    $admin = true;
+                }
             }
         }
         return view("show_noticia", compact('news', 'admin'));
@@ -83,5 +89,13 @@ class NoticiasController extends Controller
 
         $new->save();
         return redirect("/noticias");
+    }
+
+    public function destroy($id)
+    {
+
+        $new = Noticias::ReturnNew($id);
+        $new->delete();
+        return redirect('/noticias');
     }
 }
