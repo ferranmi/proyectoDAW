@@ -6,10 +6,8 @@ use App\Http\Controllers\contactController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\NoticiasController;
 use App\Http\Controllers\RacesController;
+use App\Http\Controllers\InscripcionesController;
 use App\Http\Controllers\ProductsController;
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,3 +73,9 @@ Route::get('/productos/{id}', [ProductsController::class, 'show'])->name('produc
 Route::get('/productos/{id}/edit', [ProductsController::class, 'edit']);
 Route::put('/productos/{id}', [ProductsController::class, 'update']);
 Route::get('/delete_productos/{id}', [ProductsController::class, 'destroy']);
+<<<<<<< HEAD
+=======
+
+Route::get('/inscripciones/{id}', [InscripcionesController::class, 'create']);
+Route::post('/inscripciones/{id}', [InscripcionesController::class, 'store']);
+>>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0

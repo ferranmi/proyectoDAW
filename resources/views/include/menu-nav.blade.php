@@ -1,9 +1,12 @@
-<nav class="nav justify-content-between menu-nav menu_desplegable_navbar">
-    <a href="/">Inicio</a>
-    <a href="/carreras">Carreras</a>
-    <a href="/noticias">Noticias</a>
-    <a href="/productos">Productos</a>
-    <a href="/contact">Contacto</a>
+<nav class="nav justify-content-between menu-nav menu_desplegable_navbar mt-2 mb-3 text-dark" style="background-color:rgba(0,0,0,.7)   ">
+
+    <a class="text-success font-weight-bol" href="/">Inicio</a>
+    <a class="text-success font-weight-bol" href="/carreras">Carreras</a>
+    <a class="text-success font-weight-bol" href="/noticias">Noticias</a>
+    <a class="text-success font-weight-bol" href="/productos">Productos</a>
+
+    <a class="text-success font-weight-bol" href="/contact">Contacto</a>
+
 
     @if (session()->has('user'))
         @if (!empty(session('user')))

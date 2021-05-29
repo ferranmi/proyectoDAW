@@ -12,6 +12,10 @@ class Races extends Model
     {
         return $query->paginate(10);
     }
+    public function scopeReturnHome($query)
+    {
+        return $query->limit(2)->get();
+    }
 
     public function scopeReturnRace($query, $id)
     {

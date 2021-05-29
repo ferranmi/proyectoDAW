@@ -10,7 +10,7 @@ class Noticias extends Model
     use HasFactory;
     public function scopeReturnAll($query)
     {
-        return $query->paginate(12);
+        return $query->paginate(8);
     }
 
 

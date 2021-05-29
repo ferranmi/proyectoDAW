@@ -18,7 +18,7 @@ class Controller extends BaseController
         $value = $request->session()->get('user');
         $news = Noticias::ReturnAll();
         $news = $news->take(4);
-        $races = Races::ReturnAll();
+        $races = Races::ReturnHome();
         return view('products', compact('news', 'races'));
     }
 

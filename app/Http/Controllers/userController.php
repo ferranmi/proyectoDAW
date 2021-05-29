@@ -43,6 +43,7 @@ class userController extends Controller
             if (!empty($request->birth_date_filter)) {
                 $filter->birth_date = $request->birth_date_filter;
                 $users = $users->where('birth_date', '>=', $request->birth_date_filter);
+
             }
             if (!empty($request->type_user_filter)) {
                 $filter->type_user = $request->type_user_filter;
@@ -73,6 +74,7 @@ class userController extends Controller
             return view('create_user');
         } else {
             abort(403);
+
         }
     }
 
@@ -84,6 +86,7 @@ class userController extends Controller
                 $usuarios = User::find($id);
 
                 $date = Str::substr($usuarios->birth_date, 0, 10);
+
 
                 return view('edit_user', compact('usuarios', 'date'));
             } else {
@@ -128,7 +131,10 @@ class userController extends Controller
         $user = User::find($id);
 
         $user->delete();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
         return redirect('/usuarios');
     }
 
@@ -168,6 +174,10 @@ class userController extends Controller
         $user->lastname = $request->lastname;
         $user->email = $request->email;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
         $passwd1 = $request->passwd;
         $passwd2 = $request->passwd2;
         if (empty($passwd2)) {
@@ -191,6 +201,7 @@ class userController extends Controller
 
 
 
+
         if (empty($request->type)) {
             $user->type_user = 'C';
         } else {
@@ -205,13 +216,17 @@ class userController extends Controller
     {
         $email = $request->input("email");
         $password = $request->input("passwd");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
         if (!empty($email) && !empty($password)) {
             $user_login = User::LogIn($email);
             if (!empty($user_login->email)) {
                 if ($user_login->email == $email) {
                     if (password_verify($password, $user_login->password)) {
                         $request->session()->put('user', $user_login);
+
                         return redirect('/');
                     } else {
                     }

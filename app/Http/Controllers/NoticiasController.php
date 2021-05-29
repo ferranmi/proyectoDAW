@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Validator;
 
 class NoticiasController extends Controller
 {
-
     public function index(Request $request)
     {
         $news = Noticias::ReturnAll();
         $admin = $this->isAdmin();
+
 
         return view("noticias", compact('news', 'admin'));
     }

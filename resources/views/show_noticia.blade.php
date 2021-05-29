@@ -29,7 +29,5 @@
                 <a class="btn btn-danger btn-mg" href="/delete_noticias/{{ $news->code }}"> Eliminar noticia </a>
             </p>
         @endif
-
     </div>
-
 @endsection

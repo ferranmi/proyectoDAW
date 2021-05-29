@@ -14,7 +14,9 @@ class RacesController extends Controller
     {
 
         $races = Races::ReturnAll();
+
         $admin = $this->isAdmin();
+
 
 
         return view('carreras', compact('races', 'admin'));
@@ -64,6 +66,7 @@ class RacesController extends Controller
 
         $race = Races::ReturnRace($id);
 
+
         $admin = $this->isAdmin();
 
         if ($admin == true) {
@@ -91,6 +94,7 @@ class RacesController extends Controller
 
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
 
         $request->validate([
             'name' => 'required',
@@ -99,6 +103,9 @@ class RacesController extends Controller
             'time_start'  => 'required|date',
             "file" => 'required',
         ]);
+=======
+        //dd($request->all());
+>>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
 
         $race = Races::find($id);
 
