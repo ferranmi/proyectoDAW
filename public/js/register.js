@@ -13,29 +13,29 @@ $(document).ready(function () {
     //Validación de los campos del formulario de registro
 
     function validaNom() {
-            var correcto = true;
-            if (this.value !== "") {
-                //longitud debe ser mayor o igual a 3
-                if (this.value.length < 3) {
-                    correcto = false;
-                    trataError(this, "Nombre no valido muy corto");
-                    return ;
-                }
-                //No puede contener numeros
-                if (correcto) {
-                    for(var j = 0; j<this.value.length; j++ ){
-                        if( !isNaN(parseInt(this.value[j]))  ){
-                            correcto = false;
-                            trataError(this,"No se permiten valores numericos") ;
-                            return  ;
-                        }
+        var correcto = true;
+        if (this.value !== "") {
+            //longitud debe ser mayor o igual a 3
+            if (this.value.length < 3) {
+                correcto = false;
+                trataError(this, "Nombre no valido muy corto");
+                return;
+            }
+            //No puede contener numeros
+            if (correcto) {
+                for (var j = 0; j < this.value.length; j++) {
+                    if (!isNaN(parseInt(this.value[j]))) {
+                        correcto = false;
+                        trataError(this, "No se permiten valores numericos");
+                        return;
                     }
                 }
-            }else{
-                trataError(this, "Rellena este campo")
             }
-            trataCorrecto(this);
+        } else {
+            trataError(this, "Rellena este campo")
         }
+        trataCorrecto(this);
+    }
 
 
     /*
@@ -98,6 +98,7 @@ $(document).ready(function () {
 
 
 });
+
 
 
 

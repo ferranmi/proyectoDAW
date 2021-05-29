@@ -14,15 +14,7 @@ class RacesController extends Controller
     {
 
         $races = Races::ReturnAll();
-        $admin=false;
-
-        if (session()->has('user')){
-            if (!empty(session('user'))){
-                if(session('user')->type_user=='A'){
-                    $admin=true;
-                }
-            }
-        }
+        $admin = $this->isAdmin();
 
 
         return view('carreras', compact('races', 'admin'));
@@ -30,21 +22,29 @@ class RacesController extends Controller
 
     public function create()
     {
-        return view('nova_carrera');
+
+        $admin = $this->isAdmin();
+
+        if ($admin == true) {
+            return view('nova_carrera');
+        } else {
+            abort(403);
+        }
     }
+
     public function store(Request $request)
     {
-        //dd($request->all());
+
         $race = new Races();
 
         $request->validate([
             'name' => 'required',
             'descripcion' => 'required',
-            'distance'  => 'required',
-            'time_start'  => 'required',
+            'distance'  => 'required|numeric',
+            'time_start'  => 'required|date',
             "file" => 'required',
         ]);
-           // dd('aaaaaaaa');
+
         $codigo = Races::GetMaxId();
         $id = $codigo->id + 1;
 
@@ -54,39 +54,51 @@ class RacesController extends Controller
         $race->distance  = $request->distance;
         $race->time_start  = $request->time_start;
         $race->image = $request->file('file')->store('public');
-           // dd($race);
+
         $race->save();
-        return redirect()->route("carreras.show" ,$race);
+        return redirect()->route("carreras.show", $race);
     }
 
-    public function show( $id){
+    public function show($id)
+    {
 
         $race = Races::ReturnRace($id);
-        $admin=false;
 
-        if (session()->has('user')){
-            if (!empty(session('user'))){
-                if(session('user')->type_user=='A'){
-                    $admin=true;
-                }
-            }
+        $admin = $this->isAdmin();
+
+        if ($admin == true) {
+
+            $segments = explode('T', $race->time_start);
+            return view('show_races', compact('race', 'admin', 'segments'));
+        } else {
+            abort(403);
         }
-        //dd($race->time_start);
-        $segments = explode('T', $race->time_start);
-        //dd($segments);
-
-        return view('show_races', compact('race', 'admin', 'segments'));
     }
 
     public function edit($id)
     {
-        $race = Races::ReturnRace($id);
 
-        return view('edit_race', compact('race'));
+        $admin = $this->isAdmin();
+
+        if ($admin == true) {
+
+            $race = Races::ReturnRace($id);
+            return view('edit_race', compact('race'));
+        } else {
+            abort(403);
+        }
     }
 
-    public function update (Request $request, $id){
-        //dd($request->all());
+    public function update(Request $request, $id)
+    {
+
+        $request->validate([
+            'name' => 'required',
+            'descripcion' => 'required',
+            'distance'  => 'required|numeric',
+            'time_start'  => 'required|date',
+            "file" => 'required',
+        ]);
 
         $race = Races::find($id);
 
@@ -95,17 +107,16 @@ class RacesController extends Controller
         $race->distance  = $request->distance;
         $race->time_start  = $request->time_start;
         $race->image = $request->file('file')->store('public');
-        //dd($race);
+
         $race->save();
         return redirect("/carreras");
-
     }
 
-    public function destroy ($id){
+    public function destroy($id)
+    {
 
         $new = Races::ReturnRace($id);
         $new->delete();
         return redirect('/carreras');
-
     }
 }

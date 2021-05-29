@@ -69,8 +69,9 @@ Route::put('/carreras/{id}', [RacesController::class, 'update']);
 Route::get('/delete_carreras/{id}', [RacesController::class, 'destroy']);
 
 Route::get('/productos', [ProductsController::class, 'index']);
+Route::get('/nuevo_producto', [ProductsController::class, 'create']);
+Route::post('/nuevo_producto', [ProductsController::class, 'store']);
 Route::get('/productos/{id}', [ProductsController::class, 'show'])->name('productos.show');
 Route::get('/productos/{id}/edit', [ProductsController::class, 'edit']);
 Route::put('/productos/{id}', [ProductsController::class, 'update']);
 Route::get('/delete_productos/{id}', [ProductsController::class, 'destroy']);
-
