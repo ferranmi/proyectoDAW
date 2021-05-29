@@ -10,9 +10,6 @@ html {
     width: 100%;
 }
 
-
-
-
 body {
     background-color: rgb(241, 241, 241);
     background-attachment: fixed;
@@ -53,6 +50,10 @@ select {
     font-weight: bold;
     font-size: 70px;
     font-family: 'Ceviche One';
+}
+
+.fondos_targetas {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .hola {
