@@ -7,8 +7,6 @@
                 action="/carreras/{{ $race->id }}">
                 @csrf
                 @method('PUT')
-
-
                 <h1>Editar Carrera</h1>
                 <div>
                     <label>Titulo Carrera:</label>
@@ -56,8 +54,6 @@
                         <br>
                     @enderror
                 </div>
-
-
                 <input class=" btn btn-danger" type="submit" value="Actualizar" id="submit" name="submit" />
             </form>
         </div>

@@ -23,14 +23,16 @@
             </div>
         </div>
     </div>
-
-    <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-4 ">
+    <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-2 ">
+        <p>
+            <a class="btn btn-danger btn-mg" href="/inscripciones/{{ $race->id}}"> Inscripcion </a>
+        </p>
+    </div>
+    <div class="col-lg-12  justify-content-center d-flex  mb-2 ">
         @if ($admin == true)
             <p>
-                <a class="btn btn-danger btn-mg" href="/carreras/{{ $race->id }}/edit"> Editar carrera </a>
+                <a class="btn btn-danger btn-mg" href="/carreras/{{ $race->id}}/edit"> Editar carrera </a>
             </p>
         @endif
-
     </div>
-
 @endsection

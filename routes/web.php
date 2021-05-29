@@ -6,8 +6,7 @@ use App\Http\Controllers\contactController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\NoticiasController;
 use App\Http\Controllers\RacesController;
-
-
+use App\Http\Controllers\InscripcionesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +56,5 @@ Route::get('/carreras/{id}', [RacesController::class, 'show'])->name('carreras.s
 Route::get('/carreras/{id}/edit', [RacesController::class, 'edit']);
 Route::put('/carreras/{id}', [RacesController::class, 'update']);
 
+Route::get('/inscripciones/{id}', [InscripcionesController::class, 'create']);
+Route::post('/inscripciones/{id}', [InscripcionesController::class, 'store']);

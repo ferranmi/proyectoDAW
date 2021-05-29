@@ -1,9 +1,9 @@
-<nav class="nav justify-content-between menu-nav menu_desplegable_navbar">
-    <a href="/">Inicio</a>
-    <a href="/carreras">Carreras</a>
-    <a href="/noticias">Noticias</a>
-    <a href="/contact">Contacto</a>
-    <a href="/login">Login</a>
+<nav class="nav justify-content-between menu-nav menu_desplegable_navbar mt-2 mb-3 text-dark" style="background-color:rgba(0,0,0,.7)   ">
+    <a class="text-success font-weight-bol" href="/">Inicio</a>
+    <a class="text-success font-weight-bol" href="/carreras">Carreras</a>
+    <a class="text-success font-weight-bol" href="/noticias">Noticias</a>
+    <a class="text-success font-weight-bol" href="/contact">Contacto</a>
+    <a class="text-success font-weight-bol" href="/login">Login</a>
 
     <div class="dropdown">
         <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

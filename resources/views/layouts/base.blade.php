@@ -8,10 +8,9 @@
 <body class="text-center">
     <div class="container-fluid ">
         <header>
-            <div class="row justify-content-between align-items-center">
-                <img class="position-absolute" src="{{asset("images/Mountains-Green.jpg") }}"  style="width: 100%; height: 60px; ">
-                <div class="col-lg-12 col-md-12 col-sm-12  ">
-                    <a class="cabecera" href="/">Trail Runnning World</a>
+            <div class="row">
+                <div class="col-lg-12 d-flex h-200 justify-content-center align-items-center col-md-12 col-sm-12 imagen_inicio ">
+                        <a class="cabecera text-danger" href="/">Trail Runnning World</a>
                 </div>
             </div>
         </header>

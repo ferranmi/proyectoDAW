@@ -14,11 +14,11 @@ class RacesController extends Controller
     {
 
         $races = Races::ReturnAll();
-        $admin=false;
+        $admin = false;
 
-        if (session()->has('user')){
-            if(session('user')->type_user=='A'){
-                $admin=true;
+        if (session()->has('user')) {
+            if (session('user')->type_user == 'A') {
+                $admin = true;
             }
         }
 
@@ -42,7 +42,7 @@ class RacesController extends Controller
             'time_start'  => 'required',
             "file" => 'required',
         ]);
-           // dd('aaaaaaaa');
+        // dd('aaaaaaaa');
         $codigo = Races::GetMaxId();
         $id = $codigo->id + 1;
 
@@ -52,19 +52,20 @@ class RacesController extends Controller
         $race->distance  = $request->distance;
         $race->time_start  = $request->time_start;
         $race->image = $request->file('file')->store('public');
-           // dd($race);
+        // dd($race);
         $race->save();
-        return redirect()->route("carreras.show" ,$race);
+        return redirect()->route("carreras.show", $race);
     }
 
-    public function show( $id){
+    public function show($id)
+    {
 
         $race = Races::ReturnRace($id);
-        $admin=false;
+        $admin = false;
 
-        if (session()->has('user')){
-            if(session('user')->type_user=='A'){
-                $admin=true;
+        if (session()->has('user')) {
+            if (session('user')->type_user == 'A') {
+                $admin = true;
             }
         }
         //dd($race->time_start);
@@ -81,7 +82,8 @@ class RacesController extends Controller
         return view('edit_race', compact('race'));
     }
 
-    public function update (Request $request, $id){
+    public function update(Request $request, $id)
+    {
         //dd($request->all());
 
         $race = Races::find($id);
@@ -94,6 +96,5 @@ class RacesController extends Controller
         //dd($race);
         $race->save();
         return redirect("/carreras");
-
     }
 }

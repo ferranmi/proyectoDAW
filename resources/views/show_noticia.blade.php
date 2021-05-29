@@ -28,7 +28,5 @@
                 <a class="btn btn-danger btn-mg" href="/noticias/{{ $news->code }}/edit"> Editar noticia </a>
             </p>
         @endif
-
     </div>
-
 @endsection

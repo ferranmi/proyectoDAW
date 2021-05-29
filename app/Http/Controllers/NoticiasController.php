@@ -8,19 +8,19 @@ use Illuminate\Support\Facades\Validator;
 
 class NoticiasController extends Controller
 {
-
     public function index(Request $request)
     {
         $news = Noticias::ReturnAll();
-        $admin=false;
+        $admin = false;
 
-        if (session()->has('user')){
-            if(session('user')->type_user=='A'){
-                $admin=true;
+        if (session()->has('user')) {
+            if (session('user')->type_user == 'A') {
+                $admin = true;
             }
         }
 
-        return view("noticias", compact('news','admin'));
+
+        return view("noticias", compact('news', 'admin'));
     }
 
     public function create()
@@ -55,13 +55,13 @@ class NoticiasController extends Controller
     public function show($id)
     {
         $news = Noticias::ReturnNew($id);
-        $admin=false;
-        if (session()->has('user')){
-            if(session('user')->type_user=='A'){
-                $admin=true;
+        $admin = false;
+        if (session()->has('user')) {
+            if (session('user')->type_user == 'A') {
+                $admin = true;
             }
         }
-        return view("show_noticia", compact('news','admin'));
+        return view("show_noticia", compact('news', 'admin'));
     }
 
     public function edit($id)

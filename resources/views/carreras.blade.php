@@ -2,7 +2,7 @@
 @section('products')
 
     @foreach ($races as $race)
-        <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
+        <div class="col-lg-10 d-flex justify-content-center  mt-3 mb-3  mx-auto" style="background-color: rgba(241, 145, 145, 0.5);">
             <div class="col-md-8">
                 <h2 class="featurette-heading"> <a href="carreras/{{ $race->id }}">
                         {{ $race->name }}
@@ -14,10 +14,15 @@
             </div>
         </div>
 
+
+
+
     @endforeach
 
-    {{ $races->links() }}
 
+    <div class="col-lg-12 justify-content-center d-flex ">
+        {{ $races->links() }}
+    </div>
 
     <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-4 ">
         {{-- @if ($admin == true) --}}
@@ -27,5 +32,8 @@
         {{-- @endif --}}
 
     </div>
+
+
+
 
 @endsection

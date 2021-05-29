@@ -10,7 +10,8 @@ use Illuminate\Routing\Route;
 class userController extends Controller
 {
 
-    public function register(){
+    public function register()
+    {
         return view('register');
     }
 
@@ -32,11 +33,11 @@ Validaciones que no sean null, nombre y apellido sin numeros dni formato correct
         $user->name = $request->name;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
-        $passwd1=$request->passwd;
-        $passwd2=$request->passwd2;
-        if(empty($passwd2)){
-            if(empty($passwd1)){
-                if($passwd1!=$passwd2){
+        $passwd1 = $request->passwd;
+        $passwd2 = $request->passwd2;
+        if (empty($passwd2)) {
+            if (empty($passwd1)) {
+                if ($passwd1 != $passwd2) {
                     return back()->withInput();
                 }
             }
@@ -47,7 +48,7 @@ Validaciones que no sean null, nombre y apellido sin numeros dni formato correct
         $request->datanac = date('Y-m-d H:i:s');
         $user->birth_date = $request->datanac;
 
-        $user->type_user = 'C';
+        $user->type_user = 'A';
         $user->save();
         return redirect('/login');
     }
@@ -56,19 +57,17 @@ Validaciones que no sean null, nombre y apellido sin numeros dni formato correct
     {
         $email = $request->input("email");
         $password = $request->input("passwd");
-        if (!empty($email) && !empty($password)){
+        if (!empty($email) && !empty($password)) {
             $user_login = User::LogIn($email);
-            if(!empty($user_login->email)){
+            if (!empty($user_login->email)) {
                 if ($user_login->email == $email) {
                     if (password_verify($password, $user_login->password)) {
                         $request->session()->put('user', $user_login);
                         return redirect('/',);
-                    } else {
                     }
                 }
             }
             return back()->withInput();
         }
-
     }
 }
