@@ -16,6 +16,7 @@ class inscripciones extends Model
 
     public function scopeJoinUserToInscr($query)
     {
+        //$this->belongsTo(User::)
         if (session()->has('users')) {
             if (!empty(session('user'))) {
                 $query = DB::table('inscripciones')

@@ -57,7 +57,7 @@ class userController extends Controller
                 $users = $users->where('Poblacion', 'LIKE', '%' . $request->Poblacion . '%');
             }
 
-            $usuarios = $users->select('id', 'dni', 'name', 'lastname', 'email', 'birth_date', 'type_user')->get();
+            $usuarios = $users->select('id', 'dni', 'name', 'lastname', 'email', 'birth_date', 'type_user', 'C_postal', 'Poblacion')->get();
 
             return view('usuarios', compact('usuarios', 'filter'));
         } else {
