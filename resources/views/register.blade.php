@@ -34,6 +34,14 @@
                     <input type="date" id="datanac" name="datanac" required value="{{ old('datanac') }}" />
                 </div>
                 <div>
+                    <label>Codigo Postal:</label>
+                    <input type="text" id="C_postal" name="C_postal" required value='{{ old('C_postal') }}' />
+                </div>
+                <div>
+                    <label>Poblacion:</label>
+                    <input type="text" id="Poblacion" name="Poblacion" required value='{{ old('Poblacion') }}' />
+                </div>
+                <div>
                 <input class="btn btn-info btn-mg" type="submit" value="Register" id="submit" name="submit" />
                 <p> <a href="/login" class="linkform">You have an account already? Log in here</a></p>
             </form>

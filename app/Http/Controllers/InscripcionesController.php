@@ -9,17 +9,46 @@ use Illuminate\Http\Request;
 
 class InscripcionesController extends Controller
 {
-    //
+
+    public function index(Request $request)
+    {
+
+        if (session()->has('user')) {
+            if (!empty(session('user'))) {
+                $result = inscripciones::JoinUserToInscr();
+                dd($result);
+                return view('mis_carreras', $result);
+            }
+        }
+    }
+
     public function create(Request $request, $id)
     {
-        $g_carrera = Races::find($id);
+
+        $isLogged = false;
+
+        if (session()->has('user')) {
+            if (!empty(session('user'))) {
+
+                $g_carrera = Races::find($id);
+                return view('inscripciones', compact('g_carrera'));
+            }
+        }
+
+
+        return redirect()->route('login')
+            ->with('error', 'You are not allowed to access this page.');
+
+
         //dd($g_carrera->id);
 
 
-        return view('inscripciones', compact('g_carrera'));
+
     }
+
     public function store(Request $request)
     {
+        //dd($request);
         $inscripcion = new inscripciones();
         $dorsal = inscripciones::GetMaxDorsal();
 
@@ -30,6 +59,8 @@ class InscripcionesController extends Controller
         } else {
             $inscripcion->dorsal = 1;
         }
+        $inscripcion->C_postal = $request->C_postal;
+        $inscripcion->Poblacion = $request->Poblacion;
         $inscripcion->save();
         return redirect()->route("carreras.show", $request->carrera);
     }

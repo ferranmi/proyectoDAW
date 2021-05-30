@@ -43,19 +43,27 @@ class userController extends Controller
             if (!empty($request->birth_date_filter)) {
                 $filter->birth_date = $request->birth_date_filter;
                 $users = $users->where('birth_date', '>=', $request->birth_date_filter);
-
             }
             if (!empty($request->type_user_filter)) {
                 $filter->type_user = $request->type_user_filter;
                 $users = $users->where('type_user', '=', $request->type_user_filter);
             }
-
+            if (!empty($request->C_postal)) {
+                $filter->C_postal = $request->C_postal;
+                $users = $users->where('C_postal', 'LIKE', '%' . $request->C_postal . '%');
+            }
+            if (!empty($request->Poblacion)) {
+                $filter->Poblacion = $request->Poblacion;
+                $users = $users->where('Poblacion', 'LIKE', '%' . $request->Poblacion . '%');
+            }
 
             $usuarios = $users->select('id', 'dni', 'name', 'lastname', 'email', 'birth_date', 'type_user')->get();
 
             return view('usuarios', compact('usuarios', 'filter'));
         } else {
-            abort(403);
+            //abort(403);
+            return redirect()->back()
+                ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
     }
 
@@ -73,8 +81,9 @@ class userController extends Controller
 
             return view('create_user');
         } else {
-            abort(403);
-
+            //abort(403);
+            return redirect()->back()
+                ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
     }
 
@@ -90,7 +99,9 @@ class userController extends Controller
 
                 return view('edit_user', compact('usuarios', 'date'));
             } else {
-                abort(403);
+                //abort(403);
+                return redirect()->back()
+                    ->with('error', 'No tiene permiso para acceder a esta pagina.');
             }
         }
     }
@@ -121,6 +132,9 @@ class userController extends Controller
             $user->type_user = $request->type;
         }
 
+        $user->C_postal = $request->C_postal;
+        $user->Poblacion = $request->Poblacion;
+
         $user->save();
 
         return redirect("/show_usuario/{{ session('user')->id }}");
@@ -131,10 +145,7 @@ class userController extends Controller
         $user = User::find($id);
 
         $user->delete();
-<<<<<<< HEAD
 
-=======
->>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
         return redirect('/usuarios');
     }
 
@@ -174,10 +185,7 @@ class userController extends Controller
         $user->lastname = $request->lastname;
         $user->email = $request->email;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
         $passwd1 = $request->passwd;
         $passwd2 = $request->passwd2;
         if (empty($passwd2)) {
@@ -199,6 +207,9 @@ class userController extends Controller
             return back()->withInput();
         }
 
+        $user->C_postal = $request->C_postal;
+        $user->Poblacion = $request->Poblacion;
+
 
 
 
@@ -216,10 +227,7 @@ class userController extends Controller
     {
         $email = $request->input("email");
         $password = $request->input("passwd");
-<<<<<<< HEAD
 
-=======
->>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
         if (!empty($email) && !empty($password)) {
             $user_login = User::LogIn($email);
             if (!empty($user_login->email)) {
@@ -228,7 +236,6 @@ class userController extends Controller
                         $request->session()->put('user', $user_login);
 
                         return redirect('/');
-                    } else {
                     }
                 }
             }

@@ -18,7 +18,7 @@
                         {{ session('user')->name }}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Mis Carreras</a>
+                        <a class="dropdown-item" href="/mis_carreras">Mis Carreras</a>
                         <a class="dropdown-item" href="#">Carrito</a>
                         <a class="dropdown-item" href="/show_usuario/{{ session('user')->id }}">Mi cuenta</a>
                         <a class="dropdown-item" href="/logout">Salir</a>
@@ -33,6 +33,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="/usuarios">Usuarios</a>
                         <a class="dropdown-item" href="/show_usuario/{{ session('user')->id }}">Mi cuenta</a>
+                        <a class="dropdown-item" href="/mis_carreras">Mis Carreras</a>
                         <a class="dropdown-item" href="/logout">Salir</a>
                     </div>
                 </div>

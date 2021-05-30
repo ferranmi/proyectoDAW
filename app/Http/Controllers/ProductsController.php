@@ -12,12 +12,7 @@ class ProductsController extends Controller
         $productos = Products::ReturnAll();
         $admin = $this->isAdmin();
 
-        if ($admin == true) {
-
-            return view("productos", compact('productos', 'admin'));
-        } else {
-            abort(403);
-        }
+        return view("productos", compact('productos', 'admin'));
     }
 
     public function show($id)
@@ -25,12 +20,7 @@ class ProductsController extends Controller
         $productos = Products::ReturnProduct($id);
         $admin = $this->isAdmin();
 
-        if ($admin == true) {
-
-            return view("show_producto", compact('productos', 'admin'));
-        } else {
-            abort(403);
-        }
+        return view("show_producto", compact('productos', 'admin'));
     }
 
     public function create()
@@ -42,7 +32,9 @@ class ProductsController extends Controller
 
             return view('nuevo_producto');
         } else {
-            abort(403);
+            //abort(403);
+            return redirect()->back()
+                ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
     }
 
@@ -82,7 +74,9 @@ class ProductsController extends Controller
 
             return view('edit_producto', compact('productos'));
         } else {
-            abort(403);
+            //abort(403);
+            return redirect()->back()
+                ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
     }
 

@@ -24,7 +24,9 @@ class NoticiasController extends Controller
         if ($admin == true) {
             return view('nova_noticia');
         } else {
-            abort(403);
+            //abort(403);
+            return redirect()->back()
+                ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
     }
     public function store(Request $request)
@@ -59,11 +61,7 @@ class NoticiasController extends Controller
 
         $admin = $this->isAdmin();
 
-        if ($admin == true) {
-            return view("show_noticia", compact('news', 'admin'));
-        } else {
-            abort(403);
-        }
+        return view("show_noticia", compact('news', 'admin'));
     }
 
     public function edit($id)
@@ -73,7 +71,9 @@ class NoticiasController extends Controller
         if ($admin == true) {
             return view('edit_noticia', compact('news'));
         } else {
-            abort(403);
+            //abort(403);
+            return redirect()->back()
+                ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
     }
 
