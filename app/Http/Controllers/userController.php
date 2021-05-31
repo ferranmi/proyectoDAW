@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Str;
@@ -12,89 +13,81 @@ use Illuminate\Support\Str;
 class userController extends Controller
 {
 
-
     public function index(Request $request)
     {
-        //dd($request->all());
-        //dd(session('user')->id);
-        $filter = new User;
-        $users = User::query();
 
-        if (!empty($request->dni_filter)) {
-            $filter->dni = $request->dni_filter;
-            $users = $users->where('dni', 'LIKE', '%' . $request->dni_filter . '%');
-        }
-        if (!empty($request->name_filter)) {
-            $filter->name = $request->name_filter;
-            $users = $users->where('name', 'LIKE', '%' . $request->name_filter . '%');
-        }
-        if (!empty($request->lastname_filter)) {
-            $filter->lastname = $request->lastname_filter;
-            $users = $users->where('lastname', 'LIKE', '%' . $request->lastname_filter . '%');
-        }
-        if (!empty($request->email_filter)) {
-            $filter->email = $request->email_filter;
-            $users = $users->where('email', 'LIKE', '%' . $request->email_filter . '%');
-        }
-        if (!empty($request->birth_date_filter)) {
-            $filter->birth_date = $request->birth_date_filter;
-            $users = $users->where('birth_date', '>=', $request->birth_date_filter);
-        }
-        if (!empty($request->type_user_filter)) {
-            $filter->type_user = $request->type_user_filter;
-            $users = $users->where('type_user', '=', $request->type_user_filter);
-        }
+        $admin = $this->isAdmin();
 
-        //dd($filter);
+        if ($admin == true) {
 
 
-        if (session()->has('user')) {
-            if (!empty(session('user'))) {
-                if (session('user')->type_user == 'A') {
-                    //$usuarios = User::ReturnAll();
-                    $usuarios = $users->select('id', 'dni', 'name', 'lastname', 'email', 'birth_date', 'type_user')->get();
-                    // dd($usuarios);
-                    return view('usuarios', compact('usuarios', 'filter'));
-                } else {
-                    abort(403);
-                }
-            } else {
-                abort(403);
+            $filter = new User;
+            $users = User::query();
+
+            if (!empty($request->dni_filter)) {
+                $filter->dni = $request->dni_filter;
+                $users = $users->where('dni', 'LIKE', '%' . $request->dni_filter . '%');
             }
+            if (!empty($request->name_filter)) {
+                $filter->name = $request->name_filter;
+                $users = $users->where('name', 'LIKE', '%' . $request->name_filter . '%');
+            }
+            if (!empty($request->lastname_filter)) {
+                $filter->lastname = $request->lastname_filter;
+                $users = $users->where('lastname', 'LIKE', '%' . $request->lastname_filter . '%');
+            }
+            if (!empty($request->email_filter)) {
+                $filter->email = $request->email_filter;
+                $users = $users->where('email', 'LIKE', '%' . $request->email_filter . '%');
+            }
+            if (!empty($request->birth_date_filter)) {
+                $filter->birth_date = $request->birth_date_filter;
+                $users = $users->where('birth_date', '>=', $request->birth_date_filter);
+
+            }
+            if (!empty($request->type_user_filter)) {
+                $filter->type_user = $request->type_user_filter;
+                $users = $users->where('type_user', '=', $request->type_user_filter);
+            }
+
+
+            $usuarios = $users->select('id', 'dni', 'name', 'lastname', 'email', 'birth_date', 'type_user')->get();
+
+            return view('usuarios', compact('usuarios', 'filter'));
+        } else {
+            abort(403);
         }
     }
 
     public function show(Request $request)
     {
-        // dd($request);
         return view('show_user');
     }
 
-    public function create(Request $request)
+    public function create()
     {
 
-        if (session()->has('user')) {
-            if (!empty(session('user'))) {
-                if (session('user')->type_user == 'A') {
-                    return view('create_user');
-                } else {
-                    abort(403);
-                }
-            } else {
-                abort(403);
-            }
+        $admin = $this->isAdmin();
+
+        if ($admin == true) {
+
+            return view('create_user');
+        } else {
+            abort(403);
+
         }
     }
 
     public function edit(Request $request, $id)
     {
-        //dd($id);
+
         if (session()->has('user')) {
             if (!empty(session('user'))) {
                 $usuarios = User::find($id);
-                //dd($usuarios->birth_date);
+
                 $date = Str::substr($usuarios->birth_date, 0, 10);
-                //dd($date);
+
+
                 return view('edit_user', compact('usuarios', 'date'));
             } else {
                 abort(403);
@@ -104,37 +97,44 @@ class userController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $user = new User();
-        /*
-Validaciones que no sean null, nombre y apellido sin numeros dni formato correcto, passwd y passwd 2 el mismo y encriptado
-*/
-        //dd($request);
+
+        $request->validate([
+            'name' => 'required|alpha',
+            'lastname' => 'required|alpha',
+            'email' => 'required|email:rfc,dns',
+        ]);
+
         $user = User::find($id);
-        //DD($user);
 
         $user->name = $request->name;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
-        $user->type_user = $request->type;
+
         if (!empty($request->passwd)) {
             $passHash = password_hash($request->passwd, PASSWORD_BCRYPT);
             $user->password = $passHash;
         }
+
         if (empty($request->type)) {
             $user->type_user = 'C';
         } else {
             $user->type_user = $request->type;
         }
-        //dd($user->type_user);
+
         $user->save();
+
         return redirect("/show_usuario/{{ session('user')->id }}");
     }
 
     public function destroy($id)
     {
         $user = User::find($id);
-        //dd($user);
+
         $user->delete();
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
         return redirect('/usuarios');
     }
 
@@ -156,17 +156,28 @@ Validaciones que no sean null, nombre y apellido sin numeros dni formato correct
 
     public function store(Request $request)
     {
+
+        $request->validate([
+            'dni' => 'required|alpha_num|max:9|',
+            'name' => 'required|alpha',
+            'lastname' => 'required|alpha',
+            'email' => 'required|email:rfc,dns',
+            'passwd' => 'required',
+            'passwd2' => 'required',
+            'datanac' => 'required',
+        ]);
+
         $user = new User();
-        /*
-Validaciones que no sean null, nombre y apellido sin numeros dni formato correcto, passwd y passwd 2 el mismo y encriptado
-*/
-        //dd($request);
+
         $user->dni = $request->dni;
         $user->name = $request->name;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
         $passwd1 = $request->passwd;
         $passwd2 = $request->passwd2;
         if (empty($passwd2)) {
@@ -179,8 +190,16 @@ Validaciones que no sean null, nombre y apellido sin numeros dni formato correct
 
         $passHash = password_hash($request->passwd, PASSWORD_BCRYPT);
         $user->password = $passHash;
-        $request->datanac = date('Y-m-d H:i:s');
-        $user->birth_date = $request->datanac;
+
+        $edad = Carbon::parse($request->datanac)->age;
+        if ($edad >= 18) {
+            $request->datanac = date('Y-m-d H:i:s');
+            $user->birth_date = $request->datanac;
+        } else {
+            return back()->withInput();
+        }
+
+
 
 
         if (empty($request->type)) {
@@ -188,7 +207,7 @@ Validaciones que no sean null, nombre y apellido sin numeros dni formato correct
         } else {
             $user->type_user = $request->type;
         }
-        //dd($user);
+
         $user->save();
         return redirect('/login');
     }
@@ -197,6 +216,10 @@ Validaciones que no sean null, nombre y apellido sin numeros dni formato correct
     {
         $email = $request->input("email");
         $password = $request->input("passwd");
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
         if (!empty($email) && !empty($password)) {
             $user_login = User::LogIn($email);
             if (!empty($user_login->email)) {

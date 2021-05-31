@@ -22,11 +22,11 @@
     </div>
 
     <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-4 ">
-        {{-- @if ($admin == true) --}}
+        @if ($admin == true)
         <p>
             <a class="btn btn-danger btn-mg" href="/nova_carrera"> Crea una carrera </a>
         </p>
-        {{-- @endif --}}
+        @endif
 
     </div>
 

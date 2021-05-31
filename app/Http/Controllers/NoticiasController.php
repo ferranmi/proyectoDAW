@@ -11,16 +11,7 @@ class NoticiasController extends Controller
     public function index(Request $request)
     {
         $news = Noticias::ReturnAll();
-        $admin = false;
-
-
-        if (session()->has('user')) {
-            if (!empty(session('user'))) {
-                if (session('user')->type_user == 'A') {
-                    $admin = true;
-                }
-            }
-        }
+        $admin = $this->isAdmin();
 
 
         return view("noticias", compact('news', 'admin'));
@@ -28,7 +19,13 @@ class NoticiasController extends Controller
 
     public function create()
     {
-        return view('nova_noticia');
+        $admin = $this->isAdmin();
+
+        if ($admin == true) {
+            return view('nova_noticia');
+        } else {
+            abort(403);
+        }
     }
     public function store(Request $request)
     {
@@ -57,29 +54,39 @@ class NoticiasController extends Controller
 
     public function show($id)
     {
+
         $news = Noticias::ReturnNew($id);
 
-        $admin = false;
-        if (session()->has('user')) {
-            if (!empty(session('user'))) {
-                if (session('user')->type_user == 'A') {
-                    $admin = true;
-                }
-            }
+        $admin = $this->isAdmin();
+
+        if ($admin == true) {
+            return view("show_noticia", compact('news', 'admin'));
+        } else {
+            abort(403);
         }
-        return view("show_noticia", compact('news', 'admin'));
     }
 
     public function edit($id)
     {
-        $news = Noticias::ReturnNew($id);
+        $admin = $this->isAdmin();
 
-        return view('edit_noticia', compact('news'));
+        if ($admin == true) {
+            return view('edit_noticia', compact('news'));
+        } else {
+            abort(403);
+        }
     }
 
     public function update(Request $request, $id)
     {
         $new = Noticias::find($id);
+
+        $request->validate([
+            'titulo_noticia' => 'required',
+            'd_short' => 'required',
+            'd_larga'  => 'required',
+            "file" => 'required',
+        ]);
 
         $new->title = $request->titulo_noticia;
         $new->d_short = $request->d_short;

@@ -21,4 +21,18 @@ class Controller extends BaseController
         $races = Races::ReturnHome();
         return view('products', compact('news', 'races'));
     }
+
+    protected function isAdmin()
+    {
+
+        $admin = false;
+        if (session()->has('user')) {
+            if (!empty(session('user'))) {
+                if (session('user')->type_user == 'A') {
+                    $admin = true;
+                }
+            }
+        }
+        return $admin;
+    }
 }

@@ -14,8 +14,9 @@
                         <a href="/carreras/{{ $races->id }}">Continue reading</a>
                     </div>
                     <img class=" card-img-right flex-auto d-none d-md-block"
-                        src="./images/azores.jpg" data-holder-rendered="true">
-              </div>
+                        src="{{ Storage::url($races->image) }}" data-holder-rendered="true">
+                </div>
+            </div>
 
         @endforeach
     </div>
@@ -25,6 +26,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 mt-5 mb-5">
         <div class="row">
         @foreach ($news as $new)
+
             <div class="col-lg-3 mb-3">
                 <div class="d-block card mb-3 box-shadow targetas-products mx-auto fondos_targetas ">
                     <img class="card-img-top"
@@ -35,8 +37,9 @@
                     <div class="card-body">
                         <p class="card-text"> {{ $new->title }} </p>
                     </div>
-                </div>
+                </a>
             </div>
+
         @endforeach
         </div>
     </div>

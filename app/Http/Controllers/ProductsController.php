@@ -10,43 +10,93 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         $productos = Products::ReturnAll();
-        $admin=false;
+        $admin = $this->isAdmin();
 
-        if (session()->has('user')){
-            if (!empty(session('user'))){
-                if(session('user')->type_user=='A'){
-                    $admin=true;
-                }
-            }
+        if ($admin == true) {
+
+            return view("productos", compact('productos', 'admin'));
+        } else {
+            abort(403);
         }
-
-        return view("productos", compact('productos','admin'));
     }
 
     public function show($id)
     {
         $productos = Products::ReturnProduct($id);
-        $admin=false;
-        if (session()->has('user')){
-            if (!empty(session('user'))){
-                if(session('user')->type_user=='A'){
-                    $admin=true;
-                }
-            }
+        $admin = $this->isAdmin();
+
+        if ($admin == true) {
+
+            return view("show_producto", compact('productos', 'admin'));
+        } else {
+            abort(403);
         }
-        return view("show_producto", compact('productos','admin'));
+    }
+
+    public function create()
+    {
+
+        $admin = $this->isAdmin();
+
+        if ($admin == true) {
+
+            return view('nuevo_producto');
+        } else {
+            abort(403);
+        }
+    }
+
+    public function store(Request $request)
+    {
+        $product = new Products();
+
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'stock'  => 'required|numeric',
+            'descripcio'  => 'required',
+            "file" => 'required',
+        ]);
+
+        $codigo = Products::GetMaxId();
+        $id = $codigo->id + 1;
+
+        $product->code = $id;
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->stock  = $request->stock;
+        $product->descripcio  = $request->descripcio;
+        $product->image = $request->file('file')->store('public');
+
+        $product->save();
+        return redirect()->route("productos.show", [$product]);
     }
 
     public function edit($id)
     {
-        $productos = Products::ReturnProduct($id);
+        $admin = $this->isAdmin();
 
-        return view('edit_producto', compact('productos'));
+        if ($admin == true) {
+
+            $productos = Products::ReturnProduct($id);
+
+            return view('edit_producto', compact('productos'));
+        } else {
+            abort(403);
+        }
     }
 
     public function update(Request $request, $id)
     {
-        //dd($request);
+
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'stock'  => 'required|numeric',
+            'descripcio'  => 'required',
+            "file" => 'required',
+        ]);
+
         $product = Products::find($id);
 
         $product->name = $request->name;
@@ -54,16 +104,16 @@ class ProductsController extends Controller
         $product->stock  = $request->stock;
         $product->descripcio  = $request->descripcio;
         $product->image = $request->file('file')->store('public');
-        //dd($product);
+
         $product->save();
         return redirect("/productos");
     }
 
-    public function destroy ($id){
+    public function destroy($id)
+    {
 
         $new = Products::ReturnProduct($id);
         $new->delete();
         return redirect('/productos');
-
     }
 }
