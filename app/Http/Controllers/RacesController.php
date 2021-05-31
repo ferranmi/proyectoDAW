@@ -30,7 +30,9 @@ class RacesController extends Controller
         if ($admin == true) {
             return view('nova_carrera');
         } else {
-            abort(403);
+            //abort(403);
+            return redirect()->back()
+                ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
     }
 
@@ -66,16 +68,10 @@ class RacesController extends Controller
 
         $race = Races::ReturnRace($id);
 
-
         $admin = $this->isAdmin();
 
-        if ($admin == true) {
-
-            $segments = explode('T', $race->time_start);
-            return view('show_races', compact('race', 'admin', 'segments'));
-        } else {
-            abort(403);
-        }
+        $segments = explode('T', $race->time_start);
+        return view('show_races', compact('race', 'admin', 'segments'));
     }
 
     public function edit($id)
@@ -88,13 +84,14 @@ class RacesController extends Controller
             $race = Races::ReturnRace($id);
             return view('edit_race', compact('race'));
         } else {
-            abort(403);
+            //abort(403);
+            return redirect()->back()
+                ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
     }
 
     public function update(Request $request, $id)
     {
-<<<<<<< HEAD
 
         $request->validate([
             'name' => 'required',
@@ -103,9 +100,7 @@ class RacesController extends Controller
             'time_start'  => 'required|date',
             "file" => 'required',
         ]);
-=======
-        //dd($request->all());
->>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
+
 
         $race = Races::find($id);
 

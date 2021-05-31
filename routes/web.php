@@ -35,7 +35,7 @@ Route::get('/', [Controller::class, 'index']);
 
 Route::get('/register', [userController::class, 'register']);
 Route::post('/register', [userController::class, 'store']);
-Route::get('/login', [userController::class, 'login']);
+Route::get('/login', [userController::class, 'login'])->name('login');
 Route::post('/login', [userController::class, 'access']);
 Route::get('/logout', [userController::class, 'logout']);
 
@@ -73,9 +73,8 @@ Route::get('/productos/{id}', [ProductsController::class, 'show'])->name('produc
 Route::get('/productos/{id}/edit', [ProductsController::class, 'edit']);
 Route::put('/productos/{id}', [ProductsController::class, 'update']);
 Route::get('/delete_productos/{id}', [ProductsController::class, 'destroy']);
-<<<<<<< HEAD
-=======
 
 Route::get('/inscripciones/{id}', [InscripcionesController::class, 'create']);
 Route::post('/inscripciones/{id}', [InscripcionesController::class, 'store']);
->>>>>>> 3144596a0aa2f4b63b7109674e2d5064475434a0
+
+Route::get('/mis_carreras', [InscripcionesController::class, 'index']);

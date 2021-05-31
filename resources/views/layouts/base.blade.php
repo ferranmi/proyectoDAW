@@ -8,6 +8,7 @@
 <body class="text-center">
     <div class="container-fluid ">
         <header>
+            @include('flash-message')
             <div class="row">
                 <div class="col-lg-12 d-flex h-200 justify-content-center align-items-center col-md-12 col-sm-12 imagen_inicio ">
                         <a class="cabecera text-danger" href="/">Trail Runnning World</a>

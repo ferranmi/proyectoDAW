@@ -17,9 +17,7 @@ class CreateInscripcionesTable extends Migration
             $table->id();
             $table->text('dni');
             $table->text('dorsal');
-            $table->text('id_carrera');
-            $table->text('C_postal');
-            $table->text('Poblacion');
+            $table->text('carrera');
             $table->timestamps();
         });
     }

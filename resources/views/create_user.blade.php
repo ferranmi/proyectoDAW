@@ -70,6 +70,23 @@
                 @endif
 
                 <div>
+                    <label>Codigo Postal:</label>
+                    <input type="text" id="C_postal" name="C_postal" required value='{{ old('C_postal') }}' />
+                    @error(' C_postal') <br>
+                        <small>*{{ $message }}</small>
+                        <br>
+                    @enderror
+                </div>
+                <div>
+                    <label>Poblacion:</label>
+                    <input type="text" id="Poblacion" name="Poblacion" required value='{{ old('Poblacion') }}' />
+                    @error(' Poblacion') <br>
+                        <small>*{{ $message }}</small>
+                        <br>
+                    @enderror
+                </div>
+
+                <div>
                     <input class="btn btn-info btn-mg" type="submit" value="Crear usuario" id="submit" name="submit" />
             </form>
         </div>

@@ -9,6 +9,8 @@
             <th>Email</th>
             <th>Data Nacimiento</th>
             <th>Tipo de usuario</th>
+            <th>Codigo Postal</th>
+            <th>Poblacion</th>
             <th>Accion</th>
         </thead>
         <tbody>
@@ -43,6 +45,12 @@
                         </select>
                     </td>
                     <td>
+                        <input type="text" id="C_postal" name="C_postal" value="{{ $filter->C_postal }}">
+                    </td>
+                    <td>
+                        <input type="text" id="Poblacion" name="Poblacion" value="{{ $filter->Poblacion }}">
+                    </td>
+                    <td>
                         <button type="submit" class="btn-success" value="editar">Buscar</button>
                         <button type="submit" class="btn-warning" id="reset" value="editar">Reset</button>
                     </td>
@@ -54,7 +62,7 @@
                         {{ $usuario->dni }}
                     </td>
                     <td>
-                        {{ $usuario->name }}
+                        {{ $usuario->firstname }}
                     </td>
                     <td>
                         {{ $usuario->lastname }}
@@ -67,6 +75,12 @@
                     </td>
                     <td>
                         {{ $usuario->type_user }}
+                    </td>
+                    <td>
+                        {{ $usuario->C_postal }}
+                    </td>
+                    <td>
+                        {{ $usuario->Poblacion }}
                     </td>
                     <td>
                         <a href="/edit_user/{{ $usuario->id }}">
@@ -91,14 +105,5 @@
             <button type="submit" class="btn-success" value="editar">Crear usuario</button>
         </a>
     </p>
-    <script>
-        $("#reset").on("click", reset);
-
-        function reset() {
-            alert("aaaaaaaaaaa");
-            $("#dni_filter").value = '11111111111';
-        }
-
-    </script>
 
 @endsection
