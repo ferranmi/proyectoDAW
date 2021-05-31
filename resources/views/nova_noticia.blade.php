@@ -2,7 +2,7 @@
 @section('products')
 
     <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
-        <div class="col-lg-8 col-md-8 col-sm-8 bg-danger rounded dissenyBorders ">
+        <div class="col-lg-4 col-md-8 col-sm-8  fondos_targetas rounded dissenyBorders ">
             <form class="register" name="nueva_entrada" method="post" enctype="multipart/form-data">
                 @csrf
                 <h3 class="mb-2 display-4 ">Nueva Entrada</h3>
@@ -40,7 +40,7 @@
                 </div>
 
 
-                <input class="btn btn-info btn-mg mb-2" type="submit" value="crear" id="submit" name="submit" />
+                <input class="btn btn-danger mb-2" type="submit" value="Crear" id="submit" name="submit" />
             </form>
         </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('products')
-    <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
-        <div class="col-md-8">
+    <div class="col-lg-8 d-flex justify-content-center mt-3 mb-3 mx-auto">
+        <div class="col-md-7 justify-content-center fondos_targetas dissenyBorders">
             <p>
             <h2 class="featurette-heading col-md-12">
                 {{ $news->title }}
@@ -14,11 +14,12 @@
                 <p class="lead col-md-6">
                     {{ $news->content }}
                 </p>
-                <div class="col-md-6">
-                    <img src="{{ Storage::url($news->image) }}">
-                </div>
+
             </div>
             <p class="lead col-md-12"> {{ $news->commentaries }} </p>
+        </div>
+        <div class="col-md-5 p-0 ">
+            <img style="max-height: 200px" src="{{ Storage::url($news->image) }}">
         </div>
     </div>
 

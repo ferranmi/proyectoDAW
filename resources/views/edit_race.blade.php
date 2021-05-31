@@ -2,12 +2,12 @@
 @section('products')
 
     <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
-        <div class="col-lg-8">
+        <div class="col-lg-3 fondos_targetas dissenyBorders">
             <form class="register" name="update_entrada" method="post" enctype="multipart/form-data"
                 action="/carreras/{{ $race->id }}">
                 @csrf
                 @method('PUT')
-                <h1>Editar Carrera</h1>
+                <h3>Editar Carrera</h3>
                 <div>
                     <label>Titulo Carrera:</label>
                     <input type="text" id="name" name="name" value='{{ old('name', $race->name) }}' />
@@ -54,7 +54,7 @@
                         <br>
                     @enderror
                 </div>
-                <input class=" btn btn-danger" type="submit" value="Actualizar" id="submit" name="submit" />
+                <input class=" btn btn-danger mb-2" type="submit" value="Actualizar" id="submit" name="submit" />
             </form>
         </div>
     </div>

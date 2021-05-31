@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('products')
-    <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
-        <div class="col-md-8">
+    <div class="col-lg-8 d-flex justify-content-center mt-3 mb-3 mx-auto">
+        <div class="col-md-7 fondos_targetas dissenyBorders">
             <h2 class="featurette-heading col-md-12">
                 {{ $race->name }}
             </h2>
@@ -17,10 +17,11 @@
                         {{ $segment }}
                     @endforeach
                 </p>
-                <div class="col-md-6">
-                    <img src="{{ Storage::url($race->image) }}">
-                </div>
+
             </div>
+        </div>
+        <div class="col-md-5 p-0">
+            <img src="{{ Storage::url($race->image) }}">
         </div>
     </div>
     <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-2 ">
