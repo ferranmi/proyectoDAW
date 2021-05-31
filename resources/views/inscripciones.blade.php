@@ -3,7 +3,7 @@
 
 {{session("user")}}
 <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
-    <div class=" col-lg-4 bg-danger rounded dissenyBorders">
+    <div class=" col-lg-4 fondos_targetas rounded dissenyBorders">
         <form class="register" name="register" method="post">
             @csrf
             <h3 class="display-4 mb-2">Incripcio Cursa</h3>

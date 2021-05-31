@@ -10,15 +10,15 @@
         <header>
             @include('flash-message')
             <div class="row">
-                <div class="col-lg-12 d-flex h-200 justify-content-center align-items-center col-md-12 col-sm-12 imagen_inicio ">
+                <div class="col-lg-12 d-flex h-200 justify-content-center align-items-center col-md-12 col-sm-12 imagen_inicio p-0 m-0 ">
                         <a class="cabecera text-danger" href="/">Trail Runnning World</a>
                 </div>
             </div>
         </header>
-        <div>
+        <div class="col-lg-12 col-md-12 col-12">
             @include('include.menu-nav')
         </div>
-        <div class="row div-double">
+        <div class="row">
             @yield('products')
         </div>
     </div>

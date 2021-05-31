@@ -2,13 +2,13 @@
 @section('products')
 
     <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
-        <div class="col-lg-8">
+        <div class="col-lg-3 fondos_targetas dissenyBorders">
             <form class="register" name="update_entrada" method="post" enctype="multipart/form-data"
                 action="/noticias/{{ $news->id }}">
                 @csrf
                 @method('PUT')
 
-                <h1>Editar Entrada</h1>
+                <h3>Editar Entrada</h3>
                 <div>
                     <label>Titulo Noticia:</label>
                     <input type="text" id="titulo_noticia" name="titulo_noticia"
@@ -42,7 +42,7 @@
                     <input type="file" id="file" name="file" value="{{ old('file', $news->image) }}" />
 
                 </div>
-                <input class=" btn btn-danger" type="submit" value="Actualizar" id="submit" name="submit" />
+                <input class=" btn btn-danger mb-2" type="submit" value="Actualizar" id="submit" name="submit" />
             </form>
 
         </div>

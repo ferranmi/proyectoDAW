@@ -2,7 +2,7 @@
 @section('products')
 <div class="container">
     <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
-        <div class=" col-lg-4  bg-danger rounded dissenyBorders">
+        <div class=" col-lg-4  fondos_targetas  dissenyBorders">
             <form class="contact" name="contact" method="post">
                 @csrf
                 <h3 class="mb-2 display-4">Contacto</h3>
@@ -23,7 +23,7 @@
                     <label>Comentario:</label>
                     <textarea id="comentario" name="textarea" required> </textarea>
                 </div>
-                <input class="mb-2" type="submit" value="Enviar" id="submit" name="submit" />
+                <input class="btn btn-danger mb-2" type="submit" value="Enviar" id="submit" name="submit" />
             </form>
         </div>
     </div>

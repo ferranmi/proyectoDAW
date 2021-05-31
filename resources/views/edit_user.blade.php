@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('products')
     <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
-        <div class=" col-lg-4 bg-danger rounded dissenyBorders">
+        <div class=" col-lg-4 fondos_targetas dissenyBorders">
             <form class="update" name="update" method="post">
                 @csrf
                 <h3 class="display-4 mb-2">Editar usuario</h3>
@@ -46,13 +46,13 @@
                 @endif
 
                 <div>
-                    <label>Codigo Postal:</label>
-                    <input type="text" id="C_postal" name="C_postal" required
-                        value='{{ old('C_postal', $usuarios->C_postal) }}' />
-                    @error(' C_postal') <br>
-                        <small>*{{ $message }}</small>
-                        <br>
-                    @enderror
+                    <<<<<<< HEAD <label>Codigo Postal:</label>
+                        <input type="text" id="C_postal" name="C_postal" required
+                            value='{{ old('C_postal', $usuarios->C_postal) }}' />
+                        @error(' C_postal') <br>
+                            <small>*{{ $message }}</small>
+                            <br>
+                        @enderror
                 </div>
                 <div>
                     <label>Poblacion:</label>
@@ -65,7 +65,9 @@
                 </div>
 
                 <div>
-                    <input class="btn btn-info btn-mg" type="submit" value="Actualizar usuario" id="submit" name="submit" />
+
+                    <input class="btn btn-info mb-2 bg-danger" type="submit" value="Actualizar usuario" id="submit"
+                        name="submit" />
             </form>
         </div>
     </div>
