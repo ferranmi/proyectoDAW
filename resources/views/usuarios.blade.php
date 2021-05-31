@@ -62,7 +62,7 @@
                         {{ $usuario->dni }}
                     </td>
                     <td>
-                        {{ $usuario->name }}
+                        {{ $usuario->firstname }}
                     </td>
                     <td>
                         {{ $usuario->lastname }}

@@ -15,9 +15,12 @@ class InscripcionesController extends Controller
 
         if (session()->has('user')) {
             if (!empty(session('user'))) {
-                $result = inscripciones::JoinUserToInscr();
-                dd($result);
-                return view('mis_carreras', $result);
+                //$result = inscripciones::JoinUserToInscr();
+                $inscr = inscripciones::join('users', 'inscripciones.dni', '=', 'users.dni')
+                ->join('races', 'inscripciones.carrera', '=', 'races.id')
+                ->get(['users.*', 'inscripciones.*', 'races.*']);
+                //dd($inscr);
+                return view('mis_carreras', compact('inscr'));
             }
         }
     }
@@ -59,8 +62,8 @@ class InscripcionesController extends Controller
         } else {
             $inscripcion->dorsal = 1;
         }
-        $inscripcion->C_postal = $request->C_postal;
-        $inscripcion->Poblacion = $request->Poblacion;
+        /* $inscripcion->C_postal = $request->C_postal;
+        $inscripcion->Poblacion = $request->Poblacion; */
         $inscripcion->save();
         return redirect()->route("carreras.show", $request->carrera);
     }

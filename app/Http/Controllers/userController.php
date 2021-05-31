@@ -30,7 +30,7 @@ class userController extends Controller
             }
             if (!empty($request->name_filter)) {
                 $filter->name = $request->name_filter;
-                $users = $users->where('name', 'LIKE', '%' . $request->name_filter . '%');
+                $users = $users->where('firstname', 'LIKE', '%' . $request->name_filter . '%');
             }
             if (!empty($request->lastname_filter)) {
                 $filter->lastname = $request->lastname_filter;
@@ -57,7 +57,7 @@ class userController extends Controller
                 $users = $users->where('Poblacion', 'LIKE', '%' . $request->Poblacion . '%');
             }
 
-            $usuarios = $users->select('id', 'dni', 'name', 'lastname', 'email', 'birth_date', 'type_user', 'C_postal', 'Poblacion')->get();
+            $usuarios = $users->select('id', 'dni', 'firstname', 'lastname', 'email', 'birth_date', 'type_user', 'C_postal', 'Poblacion')->get();
 
             return view('usuarios', compact('usuarios', 'filter'));
         } else {
@@ -117,7 +117,7 @@ class userController extends Controller
 
         $user = User::find($id);
 
-        $user->name = $request->name;
+        $user->firstname = $request->name;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
 
@@ -127,7 +127,7 @@ class userController extends Controller
         }
 
         if (empty($request->type)) {
-            $user->type_user = 'C';
+            $user->type_user = 'A';
         } else {
             $user->type_user = $request->type;
         }
@@ -181,7 +181,7 @@ class userController extends Controller
         $user = new User();
 
         $user->dni = $request->dni;
-        $user->name = $request->name;
+        $user->firstname = $request->name;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
 
@@ -214,7 +214,7 @@ class userController extends Controller
 
 
         if (empty($request->type)) {
-            $user->type_user = 'C';
+            $user->type_user = 'A';
         } else {
             $user->type_user = $request->type;
         }
