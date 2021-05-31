@@ -6,7 +6,7 @@ $(document).ready(function () {
     $("#email").on("blur", validaMail);
     $("#passwd").on("blur", validaPasswd1);
     $("#passwd2").on("blur", validaPasswd2);
- //   $("#datanac").on("blur", validaData);
+    $("#datanac").on("blur", validaData);
     $("#C_postal").on("blur", validaNulos);
     $("#Poblacion").on("blur", validaNulos);
 
@@ -133,6 +133,32 @@ $(document).ready(function () {
                 trataError(this, "Rellena el campo");
             }
         }
+        function validaData() {
+            console.log("Hola");
+            console.log(this.value);
+            var arrayData = this.value.split('-');
+            var any = parseInt(arrayData[0]);
+            var mes = parseInt(arrayData[1]);
+            var dia = parseInt(arrayData[2]);
+
+            var objecteData = new Date(any, mes - 1, dia);   //El mes comença per 0 (Gener)
+
+            if(objecteData.getFullYear() === any && objecteData.getMonth() === (mes -1) && objecteData.getDate() === dia){
+                var avui = new Date();
+                var mayor18 = new Date(any + 18, mes -1, dia);
+                if(mayor18 <= avui){
+                    console.log("adios");
+                    trataError(this,"Eres menor");
+                }else{
+                    trataCorrecto(this);
+                }
+            }else{
+                trataError(this,"Fecha incorrecta");
+            }
+        }
+
+
+
 
     function trataCorrecto(objeto) {
         objeto.setCustomValidity("");

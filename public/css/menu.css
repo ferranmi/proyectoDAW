@@ -6,7 +6,7 @@ html {
 .imagen_inicio {
     background-attachment: fixed;
     background-image: url("../images/nature-3082832_1920.jpg");
-    height: 200px;
+    max-height: 200px;
     width: 100%;
 }
 
@@ -23,7 +23,6 @@ p {
 a {
     font-family: 'Langar';
     text-decoration: none !important;
-
 }
 
 h3 {
@@ -48,7 +47,7 @@ select {
     text-shadow: 3px 3px rgb(8, 8, 8);
     color: rgb(255, 0, 0);
     font-weight: bold;
-    font-size: 70px;
+    font-size: 4em;
     font-family: 'Ceviche One';
 }
 
@@ -82,4 +81,17 @@ select {
 .dissenyBorders {
     border: solid black 6px;
     border-radius: 10px;
+}
+
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 0px solid;
+}
+
+.table td,
+.table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 0px solid;
 }
