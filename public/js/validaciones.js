@@ -1,8 +1,9 @@
 $(document).ready(function () {
     /* var body = $("body");
      var html = $("documentElement");
-     var height = Math.max( body.scrollHeight, body.offsetHeight,
+     var height = Math.max(body.scrollHeight, body.offsetHeight,
          html.clientHeight, html.scrollHeight, html.offsetHeight);*/
+
 
     $("#dni").on("blur", validaDNI)
     $("#name").on("blur", validaNom);
@@ -168,40 +169,42 @@ $(document).ready(function () {
         objeto.setCustomValidity(texto);
         objeto.reportValidity();
     }
-    /*checkBodyHeight();
-// Esta funcion es utilizada para ajustar el footer
 
-function checkBodyHeight(){
-    console.log(body);
-    console.log(height);
-    if(body > height){
-        $("#footer").addClass(" position:fixed");
-        console.log("hola");
 
-    }else{
-    $("#footer").removeClass(" position:fixed");
-    console.log("adios");
+    /*  checkBodyHeight();
+      // Esta funcion es utilizada para ajustar el footer
 
-    }
-}*/
+      function checkBodyHeight() {
+          console.log(body);
+          console.log(height);
+          if (body > height) {
+              $("#footer").addClass(" position:fixed");
+              console.log("hola");
 
-    /*
-        ajustarPie();
-        function ajustarPie() {
-            var winH = $(window).height();
-            var docH = $("body").height();
-            var pieH = $("footer").height();
-            console.log(docH, pieH, winH);
-            if (docH + pieH < winH) {
-                console.log("Hola");
-                $("#footer").addClass("position-fixed");
-            } else {
-                console.log("bye");
-                $("#footer").removeClass("position-fixed");
-            }
+          } else {
+              $("#footer").removeClass(" position:fixed");
+              console.log("adios");
+
+          }
+      }*/
+
+
+    ajustarPie();
+    function ajustarPie() {
+        var winH = $(window).height();
+        var docH = $("body").height();
+        var pieH = $("footer").height();
+        console.log(docH, pieH, winH);
+        if (docH < winH) {
+            console.log("Hola");
+            $("#footer").addClass("position-fixed");
+        } else {
+            console.log("bye");
+            $("#footer").removeClass("position-fixed");
         }
+    }
 
-        $(window).on("resize", ajustarPie);
-    */
+    $(window).on("resize", ajustarPie);
+
 });
 

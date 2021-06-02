@@ -2,16 +2,19 @@
 @section('products')
 
     @foreach ($races as $race)
-        <div class="col-lg-10 d-flex justify-content-center mt-3 mb-3 mx-auto ">
-            <div class="col-lg-6  dissenyBorders" style="height: 200px">
-                <h2 class="featurette-heading mt-5"> <a href="carreras/{{ $race->id }}">
-                        {{ $race->name }}
-                    </a></h2>
-                <p class="lead col-md-12">
-                    {{ $race->distance }}km
-                </p>
-            </div>
-            <div class="col-md-4 p-0"> <img style="height: 200px; width: 100%;" src="{{ Storage::url($race->image) }}">
+        <div class="col-lg-7 mt-3 d-flex justify-content-center align-items-center mx-auto">
+            <div class=" row featurette dissenyBorders">
+                <div class="col-lg-4 mt-5">
+                    <h2 class="featurette-heading"> <a href="carreras/{{ $race->id }}">
+                            {{ $race->name }}
+                        </a></h2>
+                    <p class="text-dark col-md-12">
+                        {{ $race->distance }}km
+                    </p>
+                </div>
+                <div class="col-lg-8 col-md-5 d-lg-block d-none p-0 m-0"> <img style="height: 200px; width: 100%"
+                        src="{{ Storage::url($race->image) }}">
+                </div>
             </div>
         </div>
 

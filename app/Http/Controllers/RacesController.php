@@ -115,7 +115,7 @@ class RacesController extends Controller
         $race->image = $request->file('file')->store('public');
 
         $race->save();
-        return redirect("/carreras");
+        return redirect()->route("carreras.show", $race);
     }
 
     public function destroy($id)
