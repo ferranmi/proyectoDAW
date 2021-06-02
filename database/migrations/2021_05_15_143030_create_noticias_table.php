@@ -15,12 +15,12 @@ class CreateNoticiasTable extends Migration
     {
         Schema::create('noticias', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->nullable();
+            $table->string('code');
             $table->string('title');
             $table->string('d_short');
             $table->text('content');
-            $table->text('commentaries')->nullable();
-            $table->text('image')->nullable();
+            $table->text('commentaries');
+            $table->text('image');
 
             $table->timestamps();
         });
