@@ -1,32 +1,30 @@
 @extends('layouts.base')
 @section('products')
-    <div class="col-lg-8 d-flex justify-content-center mt-3 mb-3 mx-auto">
-        <div class="col-md-7 justify-content-center fondos_targetas dissenyBorders">
+    <div class="col-lg-7 mt-3 mb-3 mx-auto row">
+
+        <div class="col-lg-12  justify-content-center dissenyBorders">
             <p>
-            <h2 class="featurette-heading col-md-12">
+            <h3 class="featurette-heading col-md-12">
                 {{ $news->title }}
-            </h2>
+            </h3>
             </p>
-            <p class="text-muted col-md-12">
-                {{ $news->d_short }}
-            </p>
-            <div class="row">
-                <p class="lead col-md-6">
+            <div class="justify-content-center mx-auto">
+
+                <p class="lead">
                     {{ $news->content }}
                 </p>
-
             </div>
-            <p class="lead col-md-12"> {{ $news->commentaries }} </p>
+            <div class="col-lg-12 d-flex justify-content-center mb-2  ">
+                <img src="{{ Storage::url($news->image) }}">
+            </div>
         </div>
-        <div class="col-md-5 p-0 ">
-            <img style="max-height: 200px" src="{{ Storage::url($news->image) }}">
-        </div>
+
     </div>
 
     <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-4 ">
         @if ($admin == true)
             <p>
-                <a class="btn btn-success btn-mg" href="/noticias/{{ $news->code }}/edit"> Editar noticia </a>
+                <a class="btn btn-success btn-mg" href="/noticias/{{ $news->id }}/edit"> Editar noticia </a>
                 <a class="btn btn-danger btn-mg" href="/delete_noticias/{{ $news->code }}"> Eliminar noticia </a>
             </p>
         @endif

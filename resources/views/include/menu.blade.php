@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link
-    href="https://fonts.googleapis.com/css2?family=Modak&family=Bungee+Inline&family=Ceviche+One&family=Langar&family=Metal+Mania&family=Romanesco&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Modak&family=Bungee+Inline&family=Sriracha&family=Ceviche+One&family=Langar&family=Romanesco&display=swap"
     rel="stylesheet">
 
 

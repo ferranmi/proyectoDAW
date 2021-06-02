@@ -50,9 +50,13 @@ class RacesController extends Controller
         ]);
 
         $codigo = Races::GetMaxId();
-        $id = $codigo->id + 1;
+        if (!empty($codigo->id)) {
+            $race->id = $codigo->id + 1;
+        } else {
+            $race->id = 1;
+        }
 
-        $race->code = $id;
+        $race->code = $race->id;
         $race->name = $request->name;
         $race->descripcion = $request->descripcion;
         $race->distance  = $request->distance;
@@ -98,7 +102,6 @@ class RacesController extends Controller
             'descripcion' => 'required',
             'distance'  => 'required|numeric',
             'time_start'  => 'required|date',
-            "file" => 'required',
         ]);
 
 
@@ -108,10 +111,12 @@ class RacesController extends Controller
         $race->descripcion = $request->descripcion;
         $race->distance  = $request->distance;
         $race->time_start  = $request->time_start;
-        $race->image = $request->file('file')->store('public');
+        if (!empty($request->file)) {
+            $race->image = $request->file('file')->store('public');
+        }
 
         $race->save();
-        return redirect("/carreras");
+        return redirect()->route("carreras.show", $race);
     }
 
     public function destroy($id)

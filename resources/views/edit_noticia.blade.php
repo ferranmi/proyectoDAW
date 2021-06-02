@@ -2,7 +2,7 @@
 @section('products')
 
     <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
-        <div class="col-lg-3 fondos_targetas dissenyBorders">
+        <div class="col-lg-3 dissenyBorders">
             <form class="register" name="update_entrada" method="post" enctype="multipart/form-data"
                 action="/noticias/{{ $news->id }}">
                 @csrf

@@ -51,9 +51,7 @@
                         <br>
                     @enderror
                 </div>
-
-
-                <input class=" btn btn-danger mb-2" type="submit" value="Actualizar" id="submit" name="submit" />
+                <input class=" btn btn-danger mb-2" type="submit" value="Crear" id="submit" name="submit" />
             </form>
         </div>
     </div>

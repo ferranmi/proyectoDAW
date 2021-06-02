@@ -15,12 +15,17 @@ class InscripcionesController extends Controller
 
         if (session()->has('user')) {
             if (!empty(session('user'))) {
-                //$result = inscripciones::JoinUserToInscr();
+                if(session('user')->type_user=='A'){
                 $inscr = inscripciones::join('users', 'inscripciones.dni', '=', 'users.dni')
-                ->join('races', 'inscripciones.carrera', '=', 'races.id')
-                ->get(['users.*', 'inscripciones.*', 'races.*']);
-                //dd($inscr);
-                return view('mis_carreras', compact('inscr'));
+                    ->join('races', 'inscripciones.carrera', '=', 'races.id')
+                    ->get(['users.*', 'inscripciones.*', 'races.*']);
+                }else{
+                    $inscr = inscripciones::join('users', 'inscripciones.dni', '=', 'users.dni')
+                    ->join('races', 'inscripciones.carrera', '=', 'races.id')
+                    ->where('users.dni', session('user')->dni)
+                    ->get(['users.*', 'inscripciones.*', 'races.*']);
+                }
+                    return view('mis_carreras', compact('inscr'));
             }
         }
     }

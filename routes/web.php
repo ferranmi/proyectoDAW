@@ -8,6 +8,7 @@ use App\Http\Controllers\NoticiasController;
 use App\Http\Controllers\RacesController;
 use App\Http\Controllers\InscripcionesController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ComprasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,4 +78,8 @@ Route::get('/delete_productos/{id}', [ProductsController::class, 'destroy']);
 Route::get('/inscripciones/{id}', [InscripcionesController::class, 'create']);
 Route::post('/inscripciones/{id}', [InscripcionesController::class, 'store']);
 
+Route::get('/compras/{id}', [ComprasController::class, 'create']);
+Route::post('/compras/{id}', [ComprasController::class, 'store']);
+
 Route::get('/mis_carreras', [InscripcionesController::class, 'index']);
+Route::get('/carrito', [ComprasController::class, 'index']);

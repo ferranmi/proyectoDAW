@@ -214,7 +214,7 @@ class userController extends Controller
 
 
         if (empty($request->type)) {
-            $user->type_user = 'A';
+            $user->type_user = 'C';
         } else {
             $user->type_user = $request->type;
         }
