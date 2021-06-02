@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('products')
-    <div class="col-lg-5 mt-3 d-flex justify-content-center mx-auto">
+    <div class="col-lg-5 mt-3 mx-auto mt-5">
         <div class="row featurette dissenyBorders">
             <div class="col-lg-7">
                 <h2 class="featurette-heading">

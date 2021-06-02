@@ -102,7 +102,6 @@ class RacesController extends Controller
             'descripcion' => 'required',
             'distance'  => 'required|numeric',
             'time_start'  => 'required|date',
-            "file" => 'required',
         ]);
 
 
@@ -112,7 +111,9 @@ class RacesController extends Controller
         $race->descripcion = $request->descripcion;
         $race->distance  = $request->distance;
         $race->time_start  = $request->time_start;
-        $race->image = $request->file('file')->store('public');
+        if (!empty($request->file)) {
+            $race->image = $request->file('file')->store('public');
+        }
 
         $race->save();
         return redirect()->route("carreras.show", $race);

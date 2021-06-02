@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
         $user->C_postal = '08635';
         $user->Poblacion = 'Sant Esteve';
         $user->password = password_hash('1111', PASSWORD_BCRYPT);
-        $date = Carbon::now();
         $user->birth_date = "2000-03-01 17:15:16";
         $user->type_user = 'A';
         $user->save();
