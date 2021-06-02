@@ -50,9 +50,13 @@ class RacesController extends Controller
         ]);
 
         $codigo = Races::GetMaxId();
-        $id = $codigo->id + 1;
+        if (!empty($codigo->id)) {
+            $race->id = $codigo->id + 1;
+        } else {
+            $race->id = 1;
+        }
 
-        $race->code = $id;
+        $race->code = $race->id;
         $race->name = $request->name;
         $race->descripcion = $request->descripcion;
         $race->distance  = $request->distance;

@@ -1,8 +1,8 @@
 @extends('layouts.base')
 @section('products')
     <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="table-responsive">
-            <table class="table">
+        <div class="  table-responsive">
+            <table class="table" >
                 <thead class="bg-danger dissenyBorders ">
                     <th class="d-none col-lg-12 d-lg-block">DNI</th>
                     <th>Nombre</th>
@@ -59,7 +59,7 @@
                                 {{ $usuario->dni }}
                             </td>
                             <td>
-                                {{ $usuario->name }}
+                                {{ $usuario->firstname }}
                             </td>
                             <td class="d-none col-lg-12 d-lg-block">
                                 {{ $usuario->lastname }}

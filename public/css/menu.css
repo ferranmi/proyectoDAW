@@ -1,15 +1,3 @@
-html {
-    margin: 0px;
-    padding: 0px;
-}
-
-.imagen_inicio {
-    background-attachment: fixed;
-    background-image: url("../images/nature-3082832_1920.jpg");
-    max-height: 200px;
-    width: 100%;
-}
-
 body {
     background-color: rgb(241, 241, 241);
     background-attachment: fixed;
@@ -17,7 +5,7 @@ body {
 }
 
 p {
-    font-family: 'Metal Mania';
+    font-family: 'Sriracha';
 }
 
 a {
@@ -51,9 +39,6 @@ select {
     font-family: 'Ceviche One';
 }
 
-.fondos_targetas {
-    background-color: rgba(255, 255, 255, 0.5);
-}
 
 .hola {
     position: absolute;
@@ -62,8 +47,8 @@ select {
 }
 
 .menu-nav a {
-    font-family: 'Romanesco';
-    font-size: 2em;
+    font-family: 'Sriracha';
+    font-size: 1.5em;
 }
 
 .menu-nav a:hover {
@@ -81,6 +66,8 @@ select {
 .dissenyBorders {
     border: solid black 6px;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+
 }
 
 

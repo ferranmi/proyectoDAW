@@ -24,7 +24,6 @@ class NoticiasController extends Controller
         if ($admin == true) {
             return view('nova_noticia');
         } else {
-            //abort(403);
             return redirect()->back()
                 ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
@@ -41,9 +40,12 @@ class NoticiasController extends Controller
         ]);
 
         $codigo = Noticias::GetMaxId();
-        $id = $codigo->id + 1;
-
-        $new->code = $id;
+        if (!empty($codigo->id)) {
+            $new->id = $codigo->id + 1;
+        } else {
+            $new->id = 1;
+        }
+        $new->code = $new->id;
         $new->title = $request->titulo_noticia;
         $new->d_short = $request->d_short;
         $new->content  = $request->d_larga;
@@ -67,11 +69,10 @@ class NoticiasController extends Controller
     public function edit($id)
     {
         $admin = $this->isAdmin();
-
+        $news = Noticias::ReturnNew($id);
         if ($admin == true) {
             return view('edit_noticia', compact('news'));
         } else {
-            //abort(403);
             return redirect()->back()
                 ->with('error', 'No tiene permiso para acceder a esta pagina.');
         }
@@ -80,20 +81,17 @@ class NoticiasController extends Controller
     public function update(Request $request, $id)
     {
         $new = Noticias::find($id);
-
         $request->validate([
             'titulo_noticia' => 'required',
             'd_short' => 'required',
-            'd_larga'  => 'required',
-            "file" => 'required',
+            'content'  => 'required',
         ]);
-
         $new->title = $request->titulo_noticia;
         $new->d_short = $request->d_short;
         $new->content  = $request->content;
-        $new->commentaries  = $request->content;
-        $new->image = $request->file('file')->store('public');
-
+        if (!empty($request->file)) {
+            $new->image = $request->file('file')->store('public');
+        }
         $new->save();
         return redirect("/noticias");
     }

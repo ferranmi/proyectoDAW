@@ -16,7 +16,7 @@ class Noticias extends Model
 
     public function scopeReturnNew($query, $id)
     {
-        return $query->where('code', $id)->first();
+        return $query->where('id', $id)->first();
     }
 
     public function scopeGetMaxId($query)

@@ -6,11 +6,11 @@
 </head>
 
 <body class="text-center">
-    <div class="container-fluid ">
+    <div class="container-fluid">
         <header>
             @include('flash-message')
             <div class="row">
-                <div class="col-lg-12 d-flex h-200 justify-content-center align-items-center col-md-12 col-sm-12 imagen_inicio p-0 m-0 ">
+                <div class="col-lg-12 d-flex h-200 justify-content-center align-items-center col-md-12 col-sm-12">
                         <a class="cabecera text-danger" href="/">Trail Runnning World</a>
                 </div>
             </div>
@@ -23,7 +23,7 @@
         </div>
     </div>
     <footer>
-        <div class=" blog-footer bg-dark position-relative">
+        <div class=" blog-footer bg-dark ">
             <div class="col-lg-12 col-md-12">
                 @include('include.footer')
             </div>

@@ -51,9 +51,16 @@ class ProductsController extends Controller
         ]);
 
         $codigo = Products::GetMaxId();
-        $id = $codigo->id + 1;
+        if (!empty($codigo->id)) {
+            $product->id = $codigo->id + 1;
+        } else {
+            $product->id = 1;
+        }
 
-        $product->code = $id;
+
+
+
+        $product->code = $product->id;
         $product->name = $request->name;
         $product->price = $request->price;
         $product->stock  = $request->stock;
