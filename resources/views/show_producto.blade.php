@@ -8,11 +8,11 @@
             </h3>
             </p>
             <p class="text-muted col-md-12">
-                {{ $productos->price }}
+                {{ $productos->price }}€
             </p>
             <div class="row">
-                <p class="lead col-md-6">
-                    {{ $productos->stock }}
+                <p class="lead col-md-12">
+                    Cantidad: {{ $productos->stock }}
                 </p>
             </div>
             <p class="lead col-md-12"> {{ $productos->descripcio }} </p>
@@ -21,7 +21,11 @@
             <img src="{{ Storage::url($productos->image) }}">
         </div>
     </div>
-
+    <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-2 ">
+        <p>
+            <a class="btn btn-danger btn-mg" href="/compras/{{ $productos->id }}"> Comprar </a>
+        </p>
+    </div>
     <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-4 ">
         @if ($admin == true)
             <p>
