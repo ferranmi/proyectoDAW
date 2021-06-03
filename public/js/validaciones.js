@@ -163,7 +163,7 @@ $(document).ready(function () {
         if (this.value !== "") {
             if (cantidad <= 0) {
                 console.log("Hola");
-                trataError(this, "valor no valido ")
+                trataError(this, "valor no valido")
             } else {
                 trataCorrecto(this)
             }
