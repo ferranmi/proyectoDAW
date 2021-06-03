@@ -12,8 +12,7 @@
                 </div>
                 <div>
                     <label>Cantidad:</label>
-                    <input class="cantidad" type="number" id="cantidad" name="cantidad" required
-                        value='{{ old('cantidad') }}' />
+                    <input class="cantidad" type="number" id="cantidad" name="cantidad" required />
                 </div>
                 <div>
                     <label>Precio:</label>
@@ -21,7 +20,7 @@
                 </div>
 
                 <div>
-                    <input class="btn btn-info btn-mg mb-2" type="submit" value="Enviar" id="submit" name="submit" />
+                    <input class="btn btn-danger mb-2" type="submit" value="Enviar" id="submit" name="submit" />
                     <input type="hidden" id="carrera" name="carrera" value="{{ $product->id }}">
             </form>
         </div>

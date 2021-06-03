@@ -14,7 +14,7 @@
                     <th>Tipo de usuario</th>
                     <th>Accion</th>
                 </thead>
-                <tbody class="dissenyBorders">
+                <tbody class="dissenyBorders ">
                     <form name="filter" action="">
                         <tr>
                             <td class="d-none col-lg-12 d-lg-block">
@@ -56,7 +56,7 @@
                             </td>
                             <td>
                                 <button type="submit" class="btn btn-success" value="editar">Buscar</button>
-                                <button type="submit" class="btn btn-warning" id="reset" value="editar">Reset</button>
+                                <input type="reset" class="btn btn-warning" id="reset" value="reset">
                             </td>
                         </tr>
 
@@ -101,7 +101,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6">
+                            <td colspan="9">
                                 No hay resultados
                             </td>
                         </tr>
