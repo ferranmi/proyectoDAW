@@ -49,7 +49,6 @@ class NoticiasController extends Controller
         $new->title = $request->titulo_noticia;
         $new->d_short = $request->d_short;
         $new->content  = $request->d_larga;
-        $new->commentaries  = $request->content;
         $new->image = $request->file('file')->store('public');
 
         $new->save();

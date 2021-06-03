@@ -12,8 +12,13 @@
                 </div>
                 <div>
                     <label>Cantidad:</label>
-                    <input class="cantidad" type="number" id="cantidad" name="cantidad" required
+                    <input class="cantidad" type="number" id="cantidad" name="cantidad" min="0" required
                         value='{{ old('cantidad') }}' />
+                    @error('cantidad')
+                        <br>
+                        <small>*{{ $message }}</small>
+                        <br>
+                    @enderror
                 </div>
                 <div>
                     <label>Precio:</label>

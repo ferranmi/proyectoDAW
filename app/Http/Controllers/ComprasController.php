@@ -59,6 +59,9 @@ class ComprasController extends Controller
 
         $compra = new Compras();
         $product = Products::GetMaxId($id);
+        $request->validate([
+            'cantidad' => 'required|numeric|min:0|not_in:0',
+        ]);
         $product->stock = $product->stock - $request->cantidad;
         if($product->stock<0){
             //dd($product->stock);

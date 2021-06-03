@@ -19,7 +19,6 @@ class CreateNoticiasTable extends Migration
             $table->string('title');
             $table->string('d_short');
             $table->text('content');
-            $table->text('commentaries');
             $table->text('image');
 
             $table->timestamps();
