@@ -1,31 +1,28 @@
 @extends('layouts.base')
-@section('products')
-    <div class="col-lg-5 mt-3 mx-auto mt-5">
+@section('home')
+    <div class="col-lg-4 mx-auto mt-2">
         <div class="row featurette dissenyBorders">
-            <div class="col-lg-7">
-                <h2 class="featurette-heading">
-                    {{ $race->name }}
-                </h2>
-                <p class="text-muted">
-                    {{ $race->descripcion }}
-                </p>
-                <p class="lead ">
-                    {{ $race->distance }} km
-                </p>
-                <p class="lead">
-                    @foreach ($segments as $segment)
-                        {{ $segment }}
-                    @endforeach
-                </p>
-            </div>
-            <div class="col-lg-5 col-md-5 d-lg-block d-none p-0">
-                <img style="height:200px;" src=" {{ Storage::url($race->image) }}">
-            </div>
+            <img style="height:275px; width: 100% " src=" {{ Storage::url($race->image) }}">
+            <h2 class="featurette-heading col-lg-12">
+                {{ $race->name }}
+            </h2>
+            <p class="text-muted col-lg-12">
+                {{ $race->descripcion }}
+            </p>
+            <p class="col-lg-12">
+                {{ $race->distance }} km
+            </p>
+            <p class="col-lg-12">
+                @foreach ($segments as $segment)
+                    {{ $segment }}
+                @endforeach
+            </p>
+
         </div>
 
     </div>
 
-    <div class="col-lg-12  justify-content-center d-flex  mt-2 mb-2 ">
+    <div class="col-lg-12 justify-content-center d-flex  mt-2 mb-2 ">
         <p>
             <a class="btn btn-danger btn-mg" href="/inscripciones/{{ $race->id }}"> Inscripcion </a>
         </p>

@@ -19,7 +19,7 @@ class Controller extends BaseController
         $news = Noticias::ReturnAll();
         $news = $news->take(4);
         $races = Races::ReturnHome();
-        return view('products', compact('news', 'races'));
+        return view('home', compact('news', 'races'));
     }
 
     protected function isAdmin()

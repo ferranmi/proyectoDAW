@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('products')
+@section('home')
 
     <div class="col-lg-12 mt-5 mb-5 d-flex justify-content-center">
         <div class=" col-lg-4 fondos_targetas rounded dissenyBorders">

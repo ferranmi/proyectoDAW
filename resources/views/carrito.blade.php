@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('products')
+@section('home')
 
 
     <div class="col-lg-12">

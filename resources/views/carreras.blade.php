@@ -1,8 +1,8 @@
 @extends('layouts.base')
-@section('products')
+@section('home')
 
     @foreach ($races as $race)
-        <div class="col-lg-7 mt-3 d-flex justify-content-center align-items-center mx-auto">
+        <div class="col-lg-7 mt-3 mx-auto">
             <div class=" row featurette dissenyBorders">
                 <div class="col-lg-4 mt-5">
                     <h2 class="featurette-heading"> <a href="carreras/{{ $race->id }}">

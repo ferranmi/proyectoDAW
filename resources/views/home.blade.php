@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('products')
+@section('home')
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="row">
             @foreach ($races as $races)
@@ -16,7 +16,6 @@
                     <img class=" card-img-right col-lg-5 col-md-5 d-lg-block d-none p-0" style="height: 200px width:100% ;"
                         src="{{ Storage::url($races->image) }}">
                 </div>
-
             @endforeach
         </div>
     </div>

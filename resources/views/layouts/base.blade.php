@@ -19,7 +19,7 @@
             @include('include.menu-nav')
         </div>
         <div class="row">
-            @yield('products')
+            @yield('home')
         </div>
     </div>
     <footer id="footer" class="bottom-0 col-lg-12 p-0">

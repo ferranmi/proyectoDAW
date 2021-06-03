@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('products')
+@section('home')
     <div class="col-lg-7 mt-3 mb-3 mx-auto row">
 
         <div class="col-lg-12  justify-content-center dissenyBorders">

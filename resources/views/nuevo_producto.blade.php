@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('products')
+@section('home')
 
     <div class="col-lg-12 d-flex justify-content-center mt-3 mb-3">
         <div class="col-lg-4 col-md-8 col-sm-8 fondos_targetas rounded dissenyBorders ">
@@ -33,8 +33,7 @@
                 </div>
                 <div>
                     <label>precio:</label>
-                    <input type="text" id="descripcio" name="descripcio"
-                        value='{{ old('descripcio') }}' />
+                    <input type="text" id="descripcio" name="descripcio" value='{{ old('descripcio') }}' />
                     @error(' descripcio') <br>
                         <small>*{{ $message }}</small>
                         <br>

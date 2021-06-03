@@ -1,18 +1,20 @@
 @extends('layouts.base')
-@section('products')
+@section('home')
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="  table-responsive">
-            <table class="table" >
+            <table class="table">
                 <thead class="bg-danger dissenyBorders ">
                     <th class="d-none col-lg-12 d-lg-block">DNI</th>
                     <th>Nombre</th>
                     <th class="d-none col-lg-12 d-lg-block">Apellidos</th>
                     <th>Email</th>
                     <th class="d-none col-lg-12 d-lg-block">Data Nacimiento</th>
+                    <th>Codigo Postal</th>
+                    <th>Poblacion</th>
                     <th>Tipo de usuario</th>
                     <th>Accion</th>
                 </thead>
-                <tbody class="fondos_targetas">
+                <tbody class="dissenyBorders">
                     <form name="filter" action="">
                         <tr>
                             <td class="d-none col-lg-12 d-lg-block">
@@ -31,6 +33,14 @@
                             <td class="d-none col-lg-12 d-lg-block">
                                 <input type="text" id="birth_date_filter" name="birth_date_filter"
                                     value="{{ $filter->birth_date }}">
+                            </td>
+                            <td>
+                                <input type="text" id="C_postal_filter" name="C_postal_filter"
+                                    value="{{ $filter->C_postal }}">
+                            </td>
+                            <td>
+                                <input type="text" id="Poblacion_filter" name="Poblacion_filter"
+                                    value="{{ $filter->Poblacion }}">
                             </td>
                             <td>
                                 <select id="type_user" id="type_user_filter" name="type_user_filter">
@@ -71,8 +81,15 @@
                                 {{ $usuario->birth_date }}
                             </td>
                             <td>
+                                {{ $usuario->C_postal }}
+                            </td>
+                            <td>
+                                {{ $usuario->Poblacion }}
+                            </td>
+                            <td>
                                 {{ $usuario->type_user }}
                             </td>
+
                             <td>
                                 <a href="/edit_user/{{ $usuario->id }}">
                                     <input type="button" class="btn btn-info" value="editar">

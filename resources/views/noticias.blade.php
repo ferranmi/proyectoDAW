@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('products')
+@section('home')
     @foreach ($news as $new)
         <div class="col-lg-5 mt-3 d-flex justify-content-center align-items-center mx-auto">
             <div class=" row featurette dissenyBorders">
