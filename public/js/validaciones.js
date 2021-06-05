@@ -1,9 +1,4 @@
 $(document).ready(function () {
-    /* var body = $("body");
-     var html = $("documentElement");
-     var height = Math.max(body.scrollHeight, body.offsetHeight,
-         html.clientHeight, html.scrollHeight, html.offsetHeight);*/
-
 
     $("#dni").on("blur", validaDNI)
     $("#name").on("blur", validaNom);
@@ -23,6 +18,11 @@ $(document).ready(function () {
     $("#titulo_noticia").on("blur", validaNulos);
     $("#d_corta").on("blur", validaNulos);
     $("#d_larga").on("blur", validaNulos);
+
+    //validacion compras
+    $("#cantidad").on("blur", validaCantidad);
+
+
 
     function validaDNI() {
         valor = $("#dni").val();
@@ -148,7 +148,6 @@ $(document).ready(function () {
             var avui = new Date();
             var mayor18 = new Date(any + 18, mes - 1, dia);
             if (mayor18 >= avui) {
-                console.log("adios");
                 trataError(this, "Eres menor");
             } else {
                 trataCorrecto(this);
@@ -158,8 +157,20 @@ $(document).ready(function () {
         }
     }
 
-
-
+    function validaCantidad() {
+        var cantidad = $("#cantidad").val();
+        console.log(cantidad);
+        if (this.value !== "") {
+            if (cantidad <= 0) {
+                console.log("Hola");
+                trataError(this, "valor no valido")
+            } else {
+                trataCorrecto(this)
+            }
+        } else {
+            trataError(this, "valor incorrecto o nulo")
+        }
+    }
 
     function trataCorrecto(objeto) {
         objeto.setCustomValidity("");
@@ -169,25 +180,6 @@ $(document).ready(function () {
         objeto.setCustomValidity(texto);
         objeto.reportValidity();
     }
-
-
-    /*  checkBodyHeight();
-      // Esta funcion es utilizada para ajustar el footer
-
-      function checkBodyHeight() {
-          console.log(body);
-          console.log(height);
-          if (body > height) {
-              $("#footer").addClass(" position:fixed");
-              console.log("hola");
-
-          } else {
-              $("#footer").removeClass(" position:fixed");
-              console.log("adios");
-
-          }
-      }*/
-
 
     ajustarPie();
     function ajustarPie() {

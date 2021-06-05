@@ -15,17 +15,17 @@ class InscripcionesController extends Controller
 
         if (session()->has('user')) {
             if (!empty(session('user'))) {
-                if(session('user')->type_user=='A'){
-                $inscr = inscripciones::join('users', 'inscripciones.dni', '=', 'users.dni')
-                    ->join('races', 'inscripciones.carrera', '=', 'races.id')
-                    ->get(['users.*', 'inscripciones.*', 'races.*']);
-                }else{
+                if (session('user')->type_user == 'A') {
                     $inscr = inscripciones::join('users', 'inscripciones.dni', '=', 'users.dni')
-                    ->join('races', 'inscripciones.carrera', '=', 'races.id')
-                    ->where('users.dni', session('user')->dni)
-                    ->get(['users.*', 'inscripciones.*', 'races.*']);
+                        ->join('races', 'inscripciones.carrera', '=', 'races.id')
+                        ->get(['users.*', 'inscripciones.*', 'races.*']);
+                } else {
+                    $inscr = inscripciones::join('users', 'inscripciones.dni', '=', 'users.dni')
+                        ->join('races', 'inscripciones.carrera', '=', 'races.id')
+                        ->where('users.dni', session('user')->dni)
+                        ->get(['users.*', 'inscripciones.*', 'races.*']);
                 }
-                    return view('mis_carreras', compact('inscr'));
+                return view('mis_carreras', compact('inscr'));
             }
         }
     }
@@ -46,17 +46,10 @@ class InscripcionesController extends Controller
 
         return redirect()->route('login')
             ->with('error', 'You are not allowed to access this page.');
-
-
-        //dd($g_carrera->id);
-
-
-
     }
 
     public function store(Request $request)
     {
-        //dd($request);
         $inscripcion = new inscripciones();
         $dorsal = inscripciones::GetMaxDorsal();
 
@@ -67,8 +60,6 @@ class InscripcionesController extends Controller
         } else {
             $inscripcion->dorsal = 1;
         }
-        /* $inscripcion->C_postal = $request->C_postal;
-        $inscripcion->Poblacion = $request->Poblacion; */
         $inscripcion->save();
         return redirect()->route("carreras.show", $request->carrera);
     }
