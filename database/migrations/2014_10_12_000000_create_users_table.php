@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->text('C_postal');
             $table->string('Poblacion');
             $table->string('password');
-            $table->timestamp('birth_date')->nullable();
+            $table->timestamp('birth_date');
             $table->string('type_user');
             $table->rememberToken();
             $table->timestamps();

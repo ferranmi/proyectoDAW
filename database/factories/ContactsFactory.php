@@ -22,7 +22,7 @@ class ContactsFactory extends Factory
     public function definition()
     {
         return [
-            'code' => $this->faker->name,
+            'code' => $this->faker->randomNumber(2),
             'name' => $this->faker->name,
             'email' => $this->faker->email,
             'subject' => $this->faker->sentence(),

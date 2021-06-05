@@ -23,11 +23,10 @@ class NoticiasFactory extends Factory
     public function definition()
     {
         return [
-            'code' => $this->faker->name,
+            'code' => $this->faker->randomNumber(2),
             'title' => $this->faker->sentence(),
             'content' => $this->faker->sentence(),
             'd_short' => $this->faker->sentence(),
-            'commentaries' => $this->faker->paragraph(),
             'image' => $this->faker->image()
         ];
     }

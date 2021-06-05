@@ -2,12 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Contacts;
-use App\Models\Noticias;
-use App\Models\Products;
-use App\Models\Races;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -32,12 +27,13 @@ class DatabaseSeeder extends Seeder
         $user->type_user = 'A';
         $user->save();
 
-        /*User::factory(20)->create();
-        Noticias::factory(20)->create();
-        Contacts::factory(20)->create();
-        Products::factory(20)->create();
-        Races::factory(20)->create();*/
-        //$this->call(UserSeeder::class);
-        // \App\Models\User::factory(10)->create();
+
+        //DESCOMENTAR CODIGO INFERIOR PARA INTRODUCIR DATOS DE MANERA ALEATORIA A LA BASE DE DATOS
+        /* User::factory(10)->create();
+        Noticias::factory(10)->create();
+        Contacts::factory(10)->create();
+        Products::factory(10)->create();
+        Races::factory(10)->create(); */
+
     }
 }

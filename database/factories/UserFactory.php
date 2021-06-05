@@ -23,7 +23,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'dni' => $this->faker->name,
+            'dni' => $this->faker->randomNumber(8).$this->faker->randomLetter,
             'firstname' => $this->faker->name,
             'lastname' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
@@ -31,6 +31,8 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'birth_date' => $this->faker->dateTimeThisYear,
+            'C_postal' =>$this->faker->randomNumber(5),
+            'Poblacion' =>$this->faker->city,
             'type_user' => $this->faker->randomElement(['A', 'C']),
         ];
     }
