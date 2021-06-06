@@ -15,21 +15,24 @@ class ComprasController extends Controller
         if (session()->has('user')) {
             if (!empty(session('user'))) {
                 //$result = inscripciones::JoinUserToInscr();
-                if(session('user')->type_user=='A'){
-
-                $carrito = Compras::join('users', 'compras.dni', '=', 'users.dni')
-                    ->join('products', 'compras.code', '=', 'products.code')
-                    ->get(['users.*', 'compras.*', 'products.*']);
-                }else{
+                if (session('user')->type_user == 'A') {
 
                     $carrito = Compras::join('users', 'compras.dni', '=', 'users.dni')
-                    ->join('products', 'compras.code', '=', 'products.code')
-                    ->where('users.dni', session('user')->dni)
-                    ->get(['users.*', 'compras.*', 'products.*']);
+                        ->join('products', 'compras.code', '=', 'products.code')
+                        ->get(['users.*', 'compras.*', 'products.*']);
+                } else {
+
+                    $carrito = Compras::join('users', 'compras.dni', '=', 'users.dni')
+                        ->join('products', 'compras.code', '=', 'products.code')
+                        ->where('users.dni', session('user')->dni)
+                        ->get(['users.*', 'compras.*', 'products.*']);
                 }
                 //dd($carrito);
                 return view('carrito', compact('carrito'));
             }
+        } else {
+            return redirect()->route('login')
+                ->with('error', 'You are not allowed to access this page.');
         }
     }
 
@@ -51,7 +54,6 @@ class ComprasController extends Controller
 
         return redirect()->route('login')
             ->with('error', 'You are not allowed to access this page.');
-
     }
 
     public function store(Request $request, $id)
@@ -63,10 +65,10 @@ class ComprasController extends Controller
             'cantidad' => 'required|numeric|min:0|not_in:0',
         ]);
         $product->stock = $product->stock - $request->cantidad;
-        if($product->stock<0){
+        if ($product->stock < 0) {
             //dd($product->stock);
             return redirect()->back()
-            ->with('error', 'No puedes comprar mas productos que los disponibles.');;
+                ->with('error', 'No puedes comprar mas productos que los disponibles.');;
         }
 
         $compra->dni = session('user')->dni;
@@ -79,6 +81,5 @@ class ComprasController extends Controller
 
         $product->save();
         return redirect()->route("productos.show", $id);
-
     }
 }

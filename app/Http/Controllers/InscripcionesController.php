@@ -27,6 +27,9 @@ class InscripcionesController extends Controller
                 }
                 return view('mis_carreras', compact('inscr'));
             }
+        } else {
+            return redirect()->route('login')
+                ->with('error', 'You are not allowed to access this page.');
         }
     }
 
