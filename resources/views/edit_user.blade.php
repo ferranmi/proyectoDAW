@@ -46,13 +46,13 @@
                 @endif
 
                 <div>
-                    <<<<<<< HEAD <label>Codigo Postal:</label>
-                        <input type="text" id="C_postal" name="C_postal" required
-                            value='{{ old('C_postal', $usuarios->C_postal) }}' />
-                        @error(' C_postal') <br>
-                            <small>*{{ $message }}</small>
-                            <br>
-                        @enderror
+                    <label>Codigo Postal:</label>
+                    <input type="text" id="C_postal" name="C_postal" required
+                        value='{{ old('C_postal', $usuarios->C_postal) }}' />
+                    @error(' C_postal') <br>
+                        <small>*{{ $message }}</small>
+                        <br>
+                    @enderror
                 </div>
                 <div>
                     <label>Poblacion:</label>
