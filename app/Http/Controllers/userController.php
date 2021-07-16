@@ -113,6 +113,8 @@ class userController extends Controller
             'name' => 'required|alpha',
             'lastname' => 'required|alpha',
             'email' => 'required|email:rfc,dns',
+            'C_postal' => 'required|number',
+            'Poblacion' => 'required|alpha',
         ]);
 
         $user = User::find($id);
@@ -165,6 +167,9 @@ class userController extends Controller
 
 
 
+
+
+
     public function store(Request $request)
     {
 
@@ -176,6 +181,7 @@ class userController extends Controller
             'passwd' => 'required',
             'passwd2' => 'required',
             'datanac' => 'required',
+
         ]);
 
         $user = new User();

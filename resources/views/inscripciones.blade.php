@@ -42,7 +42,6 @@
                     <input type="text" id="Poblacion" name="Poblacion" disabled="disabled" required
                         value='{{ $g_carrera->name }}' />
                 </div>
-
                 <div>
                     <label>Data nacimiento:</label>
                     <input type="date" id="datanac" name="datanac" required

@@ -7,9 +7,9 @@
                     src="{{ Storage::url($producto->image) }}">
                 <div class="card-body">
                     <h4 class="featurette-heading"> <a href="productos/{{ $producto->code }}">
-                            titulo: {{ $producto->name }}
+                            {{ $producto->name }}
                         </a></h4>
-                    <span class="text-muted"> precio: {{ $producto->price }} </span>
+                    <span class="text-muted"> {{ $producto->price }}€ </span>
                 </div>
             </div>
         </div>
