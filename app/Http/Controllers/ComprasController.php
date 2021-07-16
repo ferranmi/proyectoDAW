@@ -78,7 +78,8 @@ class ComprasController extends Controller
         //$product->stock = $product->stock - $request->cantidad;
 
         $product->save();
-        return redirect()->route("productos.show", $id);
+        $compra=1;
+        return redirect()->route("productos.show", [$id,$compra]);
 
     }
 }

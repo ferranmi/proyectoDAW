@@ -26,7 +26,6 @@ class RacesFactory extends Factory
             'name' => $this->faker->sentence(),
             'descripcion' => $this->faker->sentence(),
             'distance' => $this->faker->randomNumber(3),
-
             'time_start' => $this->faker->dateTime,
             'image' => $this->faker->image()
         ];
