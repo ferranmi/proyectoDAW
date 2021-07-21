@@ -7,7 +7,7 @@
             <form class="register" name="register" method="post">
                 @csrf
                 <h3 class="display-4 mb-2">Inscripcio Cursa</h3>
-                <div>
+                {{-- <div>
                     <label>DNI:</label>
                     <input type="text" id="dni" name="dni" disabled="disabled" required
                         value='{{ old('dni', session('user')->dni) }}' />
@@ -46,6 +46,13 @@
                     <label>Data nacimiento:</label>
                     <input type="date" id="datanac" name="datanac" required
                         value='{{ old('datanac', session('user')->datanac) }}' />
+                </div> --}}
+                <div>
+                    <label>
+                        dorsal
+                    </label>
+                    <input class="dorsal" type="number" id="dorsal" name="dorsal" min="1" /><br>
+                    <small>Dejar vacio si no se quiere un dorsal en especifico</small>
                 </div>
                 <div>
                     <input class="btn btn-danger mb-2" type="submit" value="Enviar" id="submit" name="submit" />

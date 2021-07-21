@@ -77,6 +77,7 @@ Route::get('/delete_productos/{id}', [ProductsController::class, 'destroy']);
 
 Route::get('/inscripciones/{id}', [InscripcionesController::class, 'create']);
 Route::post('/inscripciones/{id}', [InscripcionesController::class, 'store']);
+Route::get('/delete_inscripcion/{carrera}/{dorsal}', [InscripcionesController::class, 'destroy']);
 
 Route::get('/compras/{id}', [ComprasController::class, 'create']);
 Route::post('/compras/{id}', [ComprasController::class, 'store']);

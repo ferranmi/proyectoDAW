@@ -92,12 +92,17 @@ class userController extends Controller
 
         if (session()->has('user')) {
             if (!empty(session('user'))) {
-                $usuarios = User::find($id);
+                if ((session('user')->type_user=='C' && session('user')->id==$id) || session('user')->type_user=='A'){
+                    $usuarios = User::find($id);
 
-                $date = Str::substr($usuarios->birth_date, 0, 10);
+                    $date = Str::substr($usuarios->birth_date, 0, 10);
 
 
-                return view('edit_user', compact('usuarios', 'date'));
+                    return view('edit_user', compact('usuarios', 'date'));
+                }else {
+                    return redirect()->back()
+                    ->with("error","No puedes editar un usuario que no es tuyo.");
+                }
             } else {
                 //abort(403);
                 return redirect()->back()
@@ -108,10 +113,10 @@ class userController extends Controller
 
     public function update(Request $request, $id)
     {
-
+//|alpha',
         $request->validate([
-            'name' => 'required|alpha',
-            'lastname' => 'required|alpha',
+            'name' => 'required',
+            'lastname' => 'required',
             'email' => 'required|email:rfc,dns',
             'C_postal' => 'required|number',
             'Poblacion' => 'required|alpha',
@@ -129,7 +134,7 @@ class userController extends Controller
         }
 
         if (empty($request->type)) {
-            $user->type_user = 'A';
+            $user->type_user = 'C';
         } else {
             $user->type_user = $request->type;
         }
@@ -138,6 +143,9 @@ class userController extends Controller
         $user->Poblacion = $request->Poblacion;
 
         $user->save();
+        if (session('user')->name==$user->name){
+            dd($user);
+        }
 
         return redirect("/show_usuario/{{ session('user')->id }}");
     }
@@ -240,7 +248,6 @@ class userController extends Controller
                 if ($user_login->email == $email) {
                     if (password_verify($password, $user_login->password)) {
                         $request->session()->put('user', $user_login);
-
                         return redirect('/');
                     }
                 }
@@ -253,7 +260,6 @@ class userController extends Controller
     {
 
         $request->session()->put('user', '');
-
         return redirect('/');
     }
 }

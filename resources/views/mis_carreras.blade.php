@@ -15,6 +15,7 @@
                             <th>Dorsal</th>
                             <th>Distancia</th>
                             <th>Hora de inicio</th>
+                            <th>Desinscribirse</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,6 +26,11 @@
                                 <td>{{ $inscr->dorsal }}</td>
                                 <td> {{ $inscr->distance }}</td>
                                 <td> {{ $inscr->time_start }}</td>
+                                <td>
+                                    <a href="/delete_inscripcion/{{ $inscr->carrera }}/{{ $inscr->dorsal }}">
+                                        <input type="button" class="btn btn-danger" value="eliminar">
+                                    </a>
+                                </td>
                             </tr>
                         @empty
                             <tr>

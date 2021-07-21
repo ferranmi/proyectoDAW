@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
+use Exception;
 
 class ProductsController extends Controller
 {
@@ -98,6 +99,7 @@ class ProductsController extends Controller
             "file" => 'required',
         ]);
 
+        try{
         $product = Products::find($id);
 
         $product->name = $request->name;
@@ -107,14 +109,36 @@ class ProductsController extends Controller
         $product->image = $request->file('file')->store('public');
 
         $product->save();
-        return redirect("/productos");
+        return redirect("/productos")
+        ->with('success', 'El producto se ha modificado correctamente');
+
+        }catch(Exception $e){
+            return redirect("/productos")
+            ->with('error', 'El producto no se ha modificado debido a un error');
+        }
     }
 
     public function destroy($id)
     {
 
-        $new = Products::ReturnProduct($id);
-        $new->delete();
-        return redirect('/productos');
+        $admin = $this->isAdmin();
+
+        if ($admin == true) {
+            try{
+
+            $new = Products::ReturnProduct($id);
+            $new->delete();
+            return redirect('/productos')
+            ->with('success', 'Se ha eliminado correctamente');
+            }catch(Exception $e){
+                return redirect()->back()
+                ->with('error', 'No se ha podido eliminar.');
+            }
+        } else {
+            //abort(403);
+            return redirect()->back()
+                ->with('error', 'No tiene permiso para acceder a esta pagina.');
+        }
+
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Races;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -48,23 +49,29 @@ class RacesController extends Controller
             'time_start'  => 'required|date',
             "file" => 'required',
         ]);
+        try{
 
-        $codigo = Races::GetMaxId();
-        if (!empty($codigo->id)) {
-            $race->id = $codigo->id + 1;
-        } else {
-            $race->id = 1;
+            $codigo = Races::GetMaxId();
+            if (!empty($codigo->id)) {
+                $race->id = $codigo->id + 1;
+            } else {
+                $race->id = 1;
+            }
+
+            $race->code = $race->id;
+            $race->name = $request->name;
+            $race->descripcion = $request->descripcion;
+            $race->distance  = $request->distance;
+            $race->time_start  = $request->time_start;
+            $race->image = $request->file('file')->store('public');
+
+            $race->save();
+            return redirect()->route("carreras.show", $race)
+            ->with("success", "Carrera creada satisfactoriamente.");
+        }catch(Exception $e){
+            return redirect()->back()
+            ->withInput()->with("error", "Fallo al crear la carrera.");
         }
-
-        $race->code = $race->id;
-        $race->name = $request->name;
-        $race->descripcion = $request->descripcion;
-        $race->distance  = $request->distance;
-        $race->time_start  = $request->time_start;
-        $race->image = $request->file('file')->store('public');
-
-        $race->save();
-        return redirect()->route("carreras.show", $race);
     }
 
     public function show($id)
@@ -104,26 +111,36 @@ class RacesController extends Controller
             'time_start'  => 'required|date',
         ]);
 
+        try{
+            $race = Races::find($id);
 
-        $race = Races::find($id);
+            $race->name = $request->name;
+            $race->descripcion = $request->descripcion;
+            $race->distance  = $request->distance;
+            $race->time_start  = $request->time_start;
+            if (!empty($request->file)) {
+                $race->image = $request->file('file')->store('public');
+            }
 
-        $race->name = $request->name;
-        $race->descripcion = $request->descripcion;
-        $race->distance  = $request->distance;
-        $race->time_start  = $request->time_start;
-        if (!empty($request->file)) {
-            $race->image = $request->file('file')->store('public');
+            $race->save();
+            return redirect()->route("carreras.show", $race)
+            ->with("success", "Carrera actualizada correctamente.");
+        }catch(Exception $e){
+            return redirect()->route("carreras.show", $race)
+            ->withInput()->with("error", "Fallo en la actualizacion de la carrera.");
         }
-
-        $race->save();
-        return redirect()->route("carreras.show", $race);
     }
 
     public function destroy($id)
     {
-
-        $new = Races::ReturnRace($id);
-        $new->delete();
-        return redirect('/carreras');
+        try{
+            $new = Races::ReturnRace($id);
+            $new->delete();
+            return redirect('/carreras')
+            ->with("success", "Carrera eliminada correctamente.");
+        }catch(Exception $e){
+            return redirect()->back()
+            ->with("error","No se ha podido eliminar");
+        }
     }
 }
